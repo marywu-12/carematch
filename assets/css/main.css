@@ -2197,7 +2197,7 @@ a:hover { color: var(--accent); }
 h1, h2, h3, h4, h5, h6 { color: var(--accent-dark); }
 
 /* Footer colors (force bg + readable text) */
-.main-footer { background: var(--main-dim) !important; }
+.main-footer { background: var(--main) !important; }
 .main-footer, .footer-wrapper a, .copyright { color: #ffffffcc; }
 
 /* Tag chips */
