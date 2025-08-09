@@ -2194,3 +2194,18 @@ a:hover,
 .logo img:not([src]) {
   display: none;
 }
+
+/* CareMatch brand color: purple default, blue on hover — highest specificity for the header link */
+.main-header .logo a,
+.main-header .logo a:link,
+.main-header .logo a:visited {
+  color: #CEA9FF !important;   /* purple */
+  text-decoration: none;
+  background: transparent;
+}
+
+.main-header .logo a:hover,
+.main-header .logo a:active,
+.main-header .logo a:focus {
+  color: #86C8FF !important;   /* blue on hover */
+}
