@@ -3,7 +3,7 @@ layout: post
 read_time: true
 show_date: true
 title:  What is Caregiving? 
-date:   
+date:  2025-08-09
 description: 
 img: assets/img/posts/homepage/caregiving.png
 tags: []
