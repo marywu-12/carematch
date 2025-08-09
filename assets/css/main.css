@@ -2142,8 +2142,8 @@ a.read-more:hover {
 # Color Customization
 /* --- CareMatch hard overrides --- */
 :root {
-  --brand: #CEA9FF;       /* Purple main brand color */
-  --brand-accent: #86C8FF;/* Blue hover accent color */
+  --brand: #86C8FF;       /* Purple main brand color */
+  --brand-accent: #CEA9FF;/* Blue hover accent color */
   --bg: #FFFFFF;          /* White background */
   --text: #111111;        /* Black text */
 }
