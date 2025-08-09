@@ -2230,8 +2230,7 @@ h1, h2, h3, h4, h5, h6 { color: var(--accent-dark); }
 }
 
 .cm-hero h2 {
-  font-size: 28px;
-  margin-top: 40px;
+  font-size: 42px;
 }
 
 .cm-hero .divider {
