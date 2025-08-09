@@ -2138,15 +2138,39 @@ a.read-more:hover {
     .masthead,.toc,.page__share,.page__related,.pagination,.ads,.page__footer,.page__comments-form,.author__avatar,.author__content,.author__urls-wrapper,.nav__list,.sidebar,.adsbygoogle{display:none !important;height:1px !important}}
 
 # Color Customization
+/* Hide leftover logo image */
+.navbar-brand img, .logo img, .brand img, .site-title img { display: none !important; }
+
+/* CareMatch header + brand colors */
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@600;700&display=swap');
+
 :root{
-  --brand: #86C8FF;          /* primary */
-  --brand-accent: #CEA9FF;   /* secondary */
-  --bg: #FFFFFF;             /* background */
-  --text: #111111;           /* body text */
-  --link: var(--brand);
+  --brand: #86C8FF;        /* primary */
+  --brand-accent: #CEA9FF; /* secondary */
+  --bg: #FFFFFF;
+  --text: #111111;
 }
 
+.site-title,
+.site-title a,
+.navbar-brand,
+.logo a,
+.brand a {
+  font-family: "Plus Jakarta Sans", system-ui, -apple-system, "Helvetica Neue", Arial, sans-serif;
+  font-weight: 700;
+  letter-spacing: .06em;
+  font-size: 28px;
+  color: var(--brand);
+  text-decoration: none;
+  text-transform: uppercase; /* remove if you don't want ALL CAPS */
+}
+
+.site-title a:hover,
+.navbar-brand:hover,
+.logo a:hover,
+.brand a:hover { color: var(--brand-accent); }
+
 body { background: var(--bg); color: var(--text); }
-a, .post-title a, .menu a:hover { color: var(--link); }
-.btn, .tag, .pagination a.current { background: var(--brand); color: #fff; }
-.btn--alt, .tag--alt { background: var(--brand-accent); color: #fff; }
+a, .post-title a, .menu a:hover { color: var(--brand); }
+.btn, .tag, .pagination a.current { background-color: var(--brand); color: #fff; }
+.btn--alt, .tag--alt { background-color: var(--brand-accent); color: #fff; }
