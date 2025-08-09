@@ -2142,8 +2142,8 @@ a.read-more:hover {
 # Color Customization
 /* --- CareMatch hard overrides --- */
 :root {
-  --brand: #86C8FF;
-  --brand-accent: #CEA9FF;
+  --brand: #CEA9FF;
+  --brand-accent: #86C8FF;
   --bg: #FFFFFF;
   --text: #111111;
 }
