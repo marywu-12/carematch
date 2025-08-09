@@ -4,9 +4,9 @@ description: 'Connecting families with the right caregivers.' # this means to ig
 permalink: ':title:output_ext'
 baseurl: "/carematch" # the subpath of your site, e.g. /blog
 url: "https://marywu-12.github.io" # the base hostname & protocol for your site, e.g. http://example.com
-# logo: "/assets/img/branding/MVM-logo-full.svg"
-# logo-icon: "/assets/img/branding/MVM-symbol.svg"
-# logo-icon-SEO: "/assets/img/branding/MVM-symbol-black.png" # must be a non SVG file
+logo: 
+logo-icon: 
+logo-icon-SEO:  # must be a non SVG file
 
 # Night/Dark mode
 # Default mode is "auto", "auto" is for auto nightshift
