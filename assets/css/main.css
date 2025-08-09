@@ -2234,18 +2234,6 @@ h1, h2, h3, h4, h5, h6 { color: var(--accent-dark); }
   margin-top: 40px;
 }
 
-.cm-cta-title {
-  font-family: "Plus Jakarta Sans", system-ui, -apple-system, "Helvetica Neue", Arial, sans-serif;
-  font-weight: 800; /* heavier than section titles */
-  font-size: 26px;  /* slightly bigger */
-  text-transform: uppercase;
-  color: var(--accent-dark); /* CareMatch purple */
-  border-bottom: 3px solid var(--accent);
-  display: inline-block;
-  padding-bottom: 5px;
-  margin-top: 30px;
-}
-
 .cm-hero .divider {
   font-size: 16px; 
 }
@@ -2273,4 +2261,43 @@ h1, h2, h3, h4, h5, h6 { color: var(--accent-dark); }
 
 .cm-hero .btn:hover {
   background: var(--accent);
+}
+
+/* Home: Call-to-Action block */
+.cm-cta {
+  text-align: center;
+  padding: 32px 20px;
+  background: #F6F0FF;                 /* soft purple background */
+  border: 1px solid #EADFFF;           /* subtle border */
+  border-radius: 12px;
+  max-width: 800px;
+  margin: 50px auto 20px auto;
+  box-shadow: 0 4px 14px rgba(0,0,0,0.05);
+}
+
+.cm-cta h2 {
+  font-family: "Plus Jakarta Sans", system-ui, -apple-system, "Helvetica Neue", Arial, sans-serif;
+  font-weight: 800;
+  font-size: 26px;
+  letter-spacing: .02em;
+  color: var(--accent-dark);
+  margin-bottom: 18px;
+  text-transform: uppercase;           /* makes it distinct from mission/vision */
+}
+
+.cm-cta .btn {
+  padding: 12px 22px;
+  border-radius: 8px;
+  background: var(--accent-dark);      /* purple */
+  color: #fff !important;
+  text-decoration: none;
+  font-weight: 600;
+  border: 1px solid var(--accent-dark);
+  transition: transform .06s ease, background .2s ease, box-shadow .2s ease;
+}
+.cm-cta .btn:hover {
+  background: var(--accent);           /* blue hover */
+  border-color: var(--accent);
+  transform: translateY(-1px);
+  box-shadow: 0 8px 20px rgba(0,0,0,.08);
 }
