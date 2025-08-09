@@ -2234,10 +2234,20 @@ h1, h2, h3, h4, h5, h6 { color: var(--accent-dark); }
   margin-top: 40px;
 }
 
+.cm-cta-title {
+  font-family: "Plus Jakarta Sans", system-ui, -apple-system, "Helvetica Neue", Arial, sans-serif;
+  font-weight: 800; /* heavier than section titles */
+  font-size: 26px;  /* slightly bigger */
+  text-transform: uppercase;
+  color: var(--accent-dark); /* CareMatch purple */
+  border-bottom: 3px solid var(--accent);
+  display: inline-block;
+  padding-bottom: 5px;
+  margin-top: 30px;
+}
+
 .cm-hero .divider {
-  font-size: 14px; /* smaller star symbols */
-  color: var(--accent);
-  margin-bottom: 20px;
+  font-size: 16px; 
 }
 
 .cm-hero p {
