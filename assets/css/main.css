@@ -2142,104 +2142,58 @@ a.read-more:hover {
 # Color Customization
 /* --- CareMatch hard overrides --- */
 :root {
-  --brand: #CEA9FF;       /* main purple */
-  --brand-accent: #86C8FF;/* hover blue */
-  --bg: #FFFFFF;          /* white background */
-  --text: #111111;        /* black text */
+  --brand: #CEA9FF;       /* Purple main brand color */
+  --brand-accent: #86C8FF;/* Blue hover accent color */
+  --bg: #FFFFFF;          /* White background */
+  --text: #111111;        /* Black text */
 }
 
-/* Header title color + font — forced override */
+/* Header title color + font */
 .navbar-brand,
 .navbar-brand a,
-.navbar-brand:visited,
 .site-title,
-.site-title a,
-.site-title:visited,
-.logo a,
-.logo a:visited {
+.site-title a {
   font-family: "Plus Jakarta Sans", system-ui, -apple-system, "Helvetica Neue", Arial, sans-serif !important;
   font-weight: 700 !important;
   letter-spacing: .06em !important;
   font-size: 28px !important;
-  color: var(--brand) !important; /* force purple */
+  color: var(--brand) !important;            /* Purple main color */
   text-decoration: none !important;
   text-transform: uppercase; /* delete if you don't want ALL CAPS */
 }
 
 .navbar-brand:hover,
 .navbar-brand a:hover,
-.site-title a:hover,
-.logo a:hover {
-  color: var(--brand-accent) !important; /* blue on hover */
+.site-title a:hover {
+  color: var(--brand-accent) !important;     /* Blue hover color */
 }
 
-/* Body background + text color */
+/* Body + links */
 body {
-  background-color: var(--bg) !important; /* white */
-  color: var(--text) !important;          /* black */
+  background: var(--bg) !important;
+  color: var(--text) !important;
 }
 
-/* Links */
-a,
-.post-title a,
-.menu a:hover {
-  color: var(--brand) !important; /* purple */
-}
-
-a:hover,
-.post-title a:hover {
-  color: var(--brand-accent) !important; /* blue */
+a, .post-title a, .menu a:hover {
+  color: var(--brand) !important;            /* Purple main color */
 }
 
 /* Buttons / tags / pagination */
-.btn,
-.button,
-.btn-primary,
-.tag,
-.pagination a.current,
-.pagination .active a {
-  background-color: var(--brand) !important;
-  border-color: var(--brand) !important;
+.btn, .button, .btn-primary, .tag, .pagination a.current, .pagination .active a {
+  background-color: var(--brand) !important; /* Purple background */
+  border-color: var(--brand) !important;     /* Purple border */
+  color: #fff !important;                    /* White text */
+}
+
+.btn--alt, .tag--alt {
+  background-color: var(--brand-accent) !important; /* Blue background */
   color: #fff !important;
 }
 
-.btn:hover,
-.button:hover,
-.btn-primary:hover,
-.tag:hover,
-.pagination a.current:hover,
-.pagination .active a:hover {
-  background-color: var(--brand-accent) !important;
-  border-color: var(--brand-accent) !important;
-  color: #fff !important;
-}
-
-.btn--alt,
-.tag--alt {
-  background-color: var(--brand-accent) !important;
-  color: #fff !important;
-}
-
-/* Hide logo images ONLY if site.logo is blank (prevents broken image icon) */
-.logo img[src=""],
-.logo img:not([src]) {
+/* Hide any stray logo images just in case */
+.navbar-brand img,
+.logo img,
+.brand img,
+.site-title img {
   display: none !important;
-}
-
-/* Force CareMatch purple in the header brand text */
-.main-header .logo,
-.main-header .logo a,
-.main-header .logo a:link,
-.main-header .logo a:visited,
-.main-header .navbar-brand,
-.main-header .navbar-brand a,
-.main-header .site-title,
-.main-header .site-title a {
-  color: var(--brand) !important;
-}
-
-.main-header .logo a:hover,
-.main-header .navbar-brand:hover,
-.main-header .site-title a:hover {
-  color: var(--brand-accent) !important;
 }
