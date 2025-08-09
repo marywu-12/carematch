@@ -7,10 +7,14 @@ layout: default
     {{ content }}
     {% include search.html %}
     {% include pagination.html %}
+
+    {% comment %}
     <div class="center-tags">
       {% include get-site-tags.html %}
       {% include tag_cloud.html %}
     </div>
+    {% endcomment %}
+
   </div> <!-- End Wrapper -->
   {% include footer.html %}
 </div><!-- End flex-container -->
