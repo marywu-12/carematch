@@ -2225,3 +2225,21 @@ a:hover,
 .logo img:not([src]) {
   display: none !important;
 }
+
+/* Force CareMatch purple in the header brand text */
+.main-header .logo,
+.main-header .logo a,
+.main-header .logo a:link,
+.main-header .logo a:visited,
+.main-header .navbar-brand,
+.main-header .navbar-brand a,
+.main-header .site-title,
+.main-header .site-title a {
+  color: var(--brand) !important;
+}
+
+.main-header .logo a:hover,
+.main-header .navbar-brand:hover,
+.main-header .site-title a:hover {
+  color: var(--brand-accent) !important;
+}
