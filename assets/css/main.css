@@ -2142,10 +2142,10 @@ a.read-more:hover {
 # Color Customization
 /* --- CareMatch hard overrides --- */
 :root {
-  --brand: #CEA9FF;
-  --brand-accent: #86C8FF;
-  --bg: #FFFFFF;
-  --text: #111111;
+  --brand: #CEA9FF;       /* main purple */
+  --brand-accent: #86C8FF;/* hover blue */
+  --bg: #FFFFFF;          /* white background */
+  --text: #111111;        /* black text */
 }
 
 /* Header title color + font */
@@ -2158,7 +2158,7 @@ a.read-more:hover {
   font-weight: 700 !important;
   letter-spacing: .06em !important;
   font-size: 28px !important;
-  color: var(--brand) !important;
+  color: var(--brand) !important; /* purple */
   text-decoration: none !important;
   text-transform: uppercase; /* delete if you don't want ALL CAPS */
 }
@@ -2167,32 +2167,57 @@ a.read-more:hover {
 .navbar-brand a:hover,
 .site-title a:hover,
 .logo a:hover {
-  color: var(--brand-accent) !important;
+  color: var(--brand-accent) !important; /* blue on hover */
 }
 
 /* Body + links */
 body {
-  background: var(--bg) !important;
-  color: var(--text) !important;
+  background-color: var(--bg) !important; /* white */
+  color: var(--text) !important;          /* black */
 }
 
-a, .post-title a, .menu a:hover {
-  color: var(--brand) !important;
+a,
+.post-title a,
+.menu a:hover {
+  color: var(--brand) !important; /* purple */
+}
+
+a:hover,
+.post-title a:hover {
+  color: var(--brand-accent) !important; /* blue */
 }
 
 /* Buttons / tags / pagination */
-.btn, .button, .btn-primary, .tag, .pagination a.current, .pagination .active a {
+.btn,
+.button,
+.btn-primary,
+.tag,
+.pagination a.current,
+.pagination .active a {
   background-color: var(--brand) !important;
   border-color: var(--brand) !important;
   color: #fff !important;
 }
 
-.btn--alt, .tag--alt {
+.btn:hover,
+.button:hover,
+.btn-primary:hover,
+.tag:hover,
+.pagination a.current:hover,
+.pagination .active a:hover {
+  background-color: var(--brand-accent) !important;
+  border-color: var(--brand-accent) !important;
+  color: #fff !important;
+}
+
+.btn--alt,
+.tag--alt {
   background-color: var(--brand-accent) !important;
   color: #fff !important;
 }
 
-/* Hide logo images ONLY if site.logo is blank */
-.logo img[src=""], .logo img:not([src]) {
+/* Hide logo images ONLY if site.logo is blank (prevents broken image icon) */
+.logo img[src=""],
+.logo img:not([src]) {
   display: none !important;
 }
