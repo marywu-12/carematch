@@ -2137,3 +2137,16 @@ a.read-more:hover {
     .page__hero-caption a{color:#000 !important}
     .masthead,.toc,.page__share,.page__related,.pagination,.ads,.page__footer,.page__comments-form,.author__avatar,.author__content,.author__urls-wrapper,.nav__list,.sidebar,.adsbygoogle{display:none !important;height:1px !important}}
 
+# Color Customization
+:root{
+  --brand: #86C8FF;          /* primary */
+  --brand-accent: #CEA9FF;   /* secondary */
+  --bg: #FFFFFF;             /* background */
+  --text: #111111;           /* body text */
+  --link: var(--brand);
+}
+
+body { background: var(--bg); color: var(--text); }
+a, .post-title a, .menu a:hover { color: var(--link); }
+.btn, .tag, .pagination a.current { background: var(--brand); color: #fff; }
+.btn--alt, .tag--alt { background: var(--brand-accent); color: #fff; }
