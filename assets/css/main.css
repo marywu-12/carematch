@@ -2213,10 +2213,47 @@ h1, h2, h3, h4, h5, h6 { color: var(--accent-dark); }
 
 /* Home: Mission & Vision block */
 .cm-hero {
-  padding: 56px 0;
-  background: #F6F0FF; /* soft purple that fits your palette */
+  padding: 60px 20px;
+  background: transparent;
   text-align: center;
 }
-.cm-hero h1, .cm-hero h2 { color: var(--accent-dark); margin: 0 0 12px; }
-.cm-hero .sub { margin: 0 auto 18px; max-width: 860px; font-size: 18px; color: var(--text); }
-.cm-hero .cta .btn { margin-top: 8px; }
+
+.cm-hero h1 {
+  font-family: "Lora", serif;
+  font-size: 42px;
+  color: var(--accent-dark);
+  margin-bottom: 20px;
+}
+
+.cm-hero h2 {
+  font-family: "Lora", serif;
+  font-size: 28px;
+  color: var(--accent);
+  margin-top: 40px;
+  margin-bottom: 15px;
+}
+
+.cm-hero p {
+  font-family: "Source Sans Pro", sans-serif;
+  font-size: 18px;
+  line-height: 1.6;
+  color: var(--text);
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.cm-hero .btn {
+  display: inline-block;
+  margin-top: 30px;
+  padding: 12px 28px;
+  background: var(--accent-dark);
+  color: white !important;
+  text-decoration: none;
+  font-weight: 600;
+  border-radius: 6px;
+  transition: background 0.3s ease;
+}
+
+.cm-hero .btn:hover {
+  background: var(--accent);
+}
