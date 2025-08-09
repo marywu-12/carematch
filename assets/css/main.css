@@ -2140,28 +2140,21 @@ a.read-more:hover {
     .masthead,.toc,.page__share,.page__related,.pagination,.ads,.page__footer,.page__comments-form,.author__avatar,.author__content,.author__urls-wrapper,.nav__list,.sidebar,.adsbygoogle{display:none !important;height:1px !important}}
 
 # Color Customization
-/* === CareMatch minimal overrides === */
+/* === CareMatch minimal overrides (clean) === */
 
 /* Brand palette */
 :root {
-  --brand: #CEA9FF;       /* purple main */
-  --brand-accent: #86C8FF;/* blue hover */
-  --bg: #FFFFFF;          /* white */
-  --text: #111111;        /* black */
+  --brand: #CEA9FF;        /* purple main */
+  --brand-accent: #86C8FF; /* blue hover */
+  --bg: #FFFFFF;           /* white */
+  --text: #111111;         /* black */
 }
 
-/* Background + body text */
-body {
-  background: var(--bg);
-  color: var(--text);
-}
+/* Body */
+body { background: var(--bg); color: var(--text); }
 
 /* Header/site title as text (when no logo) */
-.logo a,
-.site-title,
-.site-title a,
-.navbar-brand,
-.navbar-brand a {
+.logo a, .site-title, .site-title a, .navbar-brand, .navbar-brand a {
   font-family: "Plus Jakarta Sans", system-ui, -apple-system, "Helvetica Neue", Arial, sans-serif;
   font-weight: 700;
   letter-spacing: .06em;
@@ -2169,47 +2162,51 @@ body {
   color: var(--brand);
   text-decoration: none;
 }
-
-/* Hover color */
-.logo a:hover,
-.site-title a:hover,
-.navbar-brand:hover,
-.navbar-brand a:hover {
-  color: var(--brand-accent);
-}
-
-/* Regular links follow brand color */
-a,
-.post-title a,
-.menu a:hover {
-  color: var(--brand);
-}
-a:hover,
-.post-title a:hover {
-  color: var(--brand-accent);
-}
+.logo a:hover, .site-title a:hover, .navbar-brand:hover, .navbar-brand a:hover { color: var(--brand-accent); }
 
 /* Hide only truly empty logo images (prevents broken icon) */
-.logo img[src=""],
-.logo img:not([src]) {
-  display: none;
-}
+.logo img[src=""], .logo img:not([src]) { display: none; }
 
-/* CareMatch brand: purple default, blue hover — applies to ALL header links/icons */
-.main-header a,
-.main-header a:link,
-.main-header a:visited,
-.main-header svg {
-  color: #CEA9FF !important;   /* purple */
-  fill: #CEA9FF !important;    /* for SVG icons */
+/* Apply palette to ALL header links/icons */
+.main-header a, .main-header a:link, .main-header a:visited, .main-header svg {
+  color: #CEA9FF !important;  /* purple */
+  fill:  #CEA9FF !important;
   text-decoration: none;
   background: transparent;
 }
+.main-header a:hover, .main-header a:active, .main-header a:focus, .main-header a:hover svg {
+  color: #86C8FF !important;  /* blue */
+  fill:  #86C8FF !important;
+}
 
-.main-header a:hover,
-.main-header a:active,
-.main-header a:focus,
-.main-header a:hover svg {
-  color: #86C8FF !important;   /* blue on hover */
-  fill: #86C8FF !important;
+/* === Remap THEME variables to CareMatch colors (affects body, footer, buttons, etc.) === */
+html{
+  --background: #FFFFFF;
+  --text: #111111;
+  --accent: #86C8FF;       /* hover/secondary */
+  --accent-dark: #CEA9FF;  /* primary headings/links */
+  --main: #CEA9FF;         /* primary UI color */
+  --main-dim: #E9DDFF;     /* softer (footer/bg accents) */
+}
+
+/* Global links in content */
+a { color: var(--accent-dark); }
+a:hover { color: var(--accent); }
+
+/* Headings use primary */
+h1, h2, h3, h4, h5, h6 { color: var(--accent-dark); }
+
+/* Footer colors (force bg + readable text) */
+.main-footer { background: var(--main-dim) !important; }
+.main-footer, .footer-wrapper a, .copyright { color: #ffffffcc; }
+
+/* Tag chips */
+.tags li a{
+  background: #F6F0FF;
+  color: #4B3C62 !important;
+  border: 2px solid var(--accent-dark);
+}
+.tags li a:hover{
+  background: var(--accent-dark);
+  color: #fff !important;
 }
