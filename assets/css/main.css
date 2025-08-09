@@ -2320,3 +2320,36 @@ h1, h2, h3, h4, h5, h6,
   font-family: "Lora", serif;
   font-weight: 700;
 }
+
+/* --- Unify All Posts (archive) typography with homepage --- */
+
+/* Titles in the archive list */
+.post h2,
+.post h2 a,
+.post .post-list-title,
+.post .post-list-title a {
+  font-family: "Lora", serif;
+  font-weight: 800;
+  color: var(--accent-dark);
+  text-decoration: none;
+}
+
+/* Meta + excerpt + "read more" */
+.post .post-card-meta,
+.post .post-meta,
+.post .post-excerpt,
+.post .read-more,
+.archive .post-meta,
+.archive .post-excerpt {
+  font-family: "Source Sans Pro", sans-serif;
+  color: var(--text);
+}
+
+/* Search input on the All Posts page */
+.content .search input[type="text"],
+.content #search-input {
+  font-family: "Source Sans Pro", sans-serif;
+}
+
+/* Optional: tighten spacing so it matches home */
+.post { margin-bottom: 36px; }
