@@ -2302,3 +2302,21 @@ h1, h2, h3, h4, h5, h6 { color: var(--accent-dark); }
   transform: translateY(-1px);
   box-shadow: 0 8px 20px rgba(0,0,0,.08);
 }
+
+/* Unify fonts across homepage and posts */
+body,
+.content,
+.wrapper,
+.page-content,
+.post-content {
+  font-family: "Source Sans Pro", system-ui, -apple-system, "Helvetica Neue", Arial, sans-serif;
+  line-height: 1.6;
+}
+
+/* Headings + post/page titles */
+h1, h2, h3, h4, h5, h6,
+.post-title,
+.page-title {
+  font-family: "Lora", serif;
+  font-weight: 700;
+}
