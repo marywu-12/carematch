@@ -6,7 +6,10 @@ layout: default
   <div class="content wrapper">
     {{ content }}
     {% include search.html %}
+
+    {% comment %}
     {% include pagination.html %}
+    {% endcomment %}
 
     {% comment %}
     <div class="center-tags">
@@ -14,7 +17,6 @@ layout: default
       {% include tag_cloud.html %}
     </div>
     {% endcomment %}
-
   </div> <!-- End Wrapper -->
   {% include footer.html %}
 </div><!-- End flex-container -->
