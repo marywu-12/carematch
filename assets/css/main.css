@@ -2234,7 +2234,9 @@ h1, h2, h3, h4, h5, h6 { color: var(--accent-dark); }
 }
 
 .cm-hero .divider {
-  font-size: 16px; 
+  font-size: 16px;
+  margin: 12px 0 20px 0; /* top, right, bottom, left */
+  display: block;
 }
 
 .cm-hero p {
