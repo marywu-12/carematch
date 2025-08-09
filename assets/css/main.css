@@ -2140,60 +2140,57 @@ a.read-more:hover {
     .masthead,.toc,.page__share,.page__related,.pagination,.ads,.page__footer,.page__comments-form,.author__avatar,.author__content,.author__urls-wrapper,.nav__list,.sidebar,.adsbygoogle{display:none !important;height:1px !important}}
 
 # Color Customization
-/* --- CareMatch hard overrides --- */
+/* === CareMatch minimal overrides === */
+
+/* Brand palette */
 :root {
-  --brand: #86C8FF;       /* Purple main brand color */
-  --brand-accent: #CEA9FF;/* Blue hover accent color */
-  --bg: #FFFFFF;          /* White background */
-  --text: #111111;        /* Black text */
+  --brand: #CEA9FF;       /* purple main */
+  --brand-accent: #86C8FF;/* blue hover */
+  --bg: #FFFFFF;          /* white */
+  --text: #111111;        /* black */
 }
 
-/* Header title color + font */
-.navbar-brand,
-.navbar-brand a,
-.site-title,
-.site-title a {
-  font-family: "Plus Jakarta Sans", system-ui, -apple-system, "Helvetica Neue", Arial, sans-serif !important;
-  font-weight: 700 !important;
-  letter-spacing: .06em !important;
-  font-size: 28px !important;
-  color: var(--brand) !important;            /* Purple main color */
-  text-decoration: none !important;
-  text-transform: uppercase; /* delete if you don't want ALL CAPS */
-}
-
-.navbar-brand:hover,
-.navbar-brand a:hover,
-.site-title a:hover {
-  color: var(--brand-accent) !important;     /* Blue hover color */
-}
-
-/* Body + links */
+/* Background + body text */
 body {
-  background: var(--bg) !important;
-  color: var(--text) !important;
+  background: var(--bg);
+  color: var(--text);
 }
 
-a, .post-title a, .menu a:hover {
-  color: var(--brand) !important;            /* Purple main color */
+/* Header/site title as text (when no logo) */
+.logo a,
+.site-title,
+.site-title a,
+.navbar-brand,
+.navbar-brand a {
+  font-family: "Plus Jakarta Sans", system-ui, -apple-system, "Helvetica Neue", Arial, sans-serif;
+  font-weight: 700;
+  letter-spacing: .06em;
+  font-size: 28px;
+  color: var(--brand);
+  text-decoration: none;
 }
 
-/* Buttons / tags / pagination */
-.btn, .button, .btn-primary, .tag, .pagination a.current, .pagination .active a {
-  background-color: var(--brand) !important; /* Purple background */
-  border-color: var(--brand) !important;     /* Purple border */
-  color: #fff !important;                    /* White text */
+/* Hover color */
+.logo a:hover,
+.site-title a:hover,
+.navbar-brand:hover,
+.navbar-brand a:hover {
+  color: var(--brand-accent);
 }
 
-.btn--alt, .tag--alt {
-  background-color: var(--brand-accent) !important; /* Blue background */
-  color: #fff !important;
+/* Regular links follow brand color */
+a,
+.post-title a,
+.menu a:hover {
+  color: var(--brand);
+}
+a:hover,
+.post-title a:hover {
+  color: var(--brand-accent);
 }
 
-/* Hide any stray logo images just in case */
-.navbar-brand img,
-.logo img,
-.brand img,
-.site-title img {
-  display: none !important;
+/* Hide only truly empty logo images (prevents broken icon) */
+.logo img[src=""],
+.logo img:not([src]) {
+  display: none;
 }
