@@ -1,6 +1,8 @@
 {% include calculate_relative_base.html %}
 {% include escape-404.html %}
 
+<link rel="stylesheet" href="{{ '/assets/css/main.css' | relative_url }}?v={{ site.time | date: '%s' }}">
+
 <head>
 	<meta charset="utf-8">
 	<title>{% if page.title %}{{page.title}} - {{site.title}}{% else %}{{site.title}}{% endif %}</title>
