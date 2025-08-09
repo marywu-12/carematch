@@ -2218,19 +2218,26 @@ h1, h2, h3, h4, h5, h6 { color: var(--accent-dark); }
   text-align: center;
 }
 
-.cm-hero h1 {
+.cm-hero h1, .cm-hero h2 {
   font-family: "Lora", serif;
-  font-size: 42px;
+  font-weight: 700;
+  margin-bottom: 5px;
   color: var(--accent-dark);
-  margin-bottom: 20px;
+}
+
+.cm-hero h1 {
+  font-size: 42px;
 }
 
 .cm-hero h2 {
-  font-family: "Lora", serif;
   font-size: 28px;
-  color: var(--accent);
   margin-top: 40px;
-  margin-bottom: 15px;
+}
+
+.cm-hero .divider {
+  font-size: 14px; /* smaller star symbols */
+  color: var(--accent);
+  margin-bottom: 20px;
 }
 
 .cm-hero p {
@@ -2239,12 +2246,12 @@ h1, h2, h3, h4, h5, h6 { color: var(--accent-dark); }
   line-height: 1.6;
   color: var(--text);
   max-width: 900px;
-  margin: 0 auto;
+  margin: 0 auto 20px auto;
 }
 
 .cm-hero .btn {
   display: inline-block;
-  margin-top: 30px;
+  margin-top: 15px;
   padding: 12px 28px;
   background: var(--accent-dark);
   color: white !important;
