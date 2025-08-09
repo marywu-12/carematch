@@ -5,7 +5,7 @@ show_date: true
 title:  What is Alzheimer's?
 date:   2025-08-09
 description: 
-img: posts/homepage/alzheimers.png
+img: posts/homepage/alzheimers.jpg
 tags: []
 author: 
 pin_on_home: true
