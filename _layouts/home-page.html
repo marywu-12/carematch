@@ -9,7 +9,7 @@ layout: default
       | where_exp: "p", "p.pin_on_home == true"
       | sort: "featured_order" %}
 
-    <ol class="post-card-box clearfix">
+    <ol class="post-card-box clearfix" style="margin-bottom: 32px;">
       {% for post in featured %}
         <li>
           <div class="post-card">
@@ -28,11 +28,11 @@ layout: default
       {% endfor %}
     </ol>
 
+    {{ content }}
+
     {% include search.html %}
 
-    {% comment %}
-    {% include pagination.html %}
-    {% endcomment %}
+    {% comment %}{% include pagination.html %}{% endcomment %}
 
     {% comment %}
     <div class="center-tags">
@@ -40,7 +40,6 @@ layout: default
       {% include tag_cloud.html %}
     </div>
     {% endcomment %}
-
-  </div> <!-- End Wrapper -->
+  </div>
   {% include footer.html %}
-</div><!-- End flex-container -->
+</div>
