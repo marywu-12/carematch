@@ -2144,8 +2144,8 @@ a.read-more:hover {
 
 /* Brand palette */
 :root {
-  --brand: #CEA9FF;        /* purple main */
-  --brand-accent: #86C8FF; /* blue hover */
+  --brand: #C199F5;        /* purple main */
+  --brand-accent: #73BEFD; /* blue hover */
   --bg: #FFFFFF;           /* white */
   --text: #111111;         /* black */
 }
@@ -2169,23 +2169,23 @@ body { background: var(--bg); color: var(--text); }
 
 /* Apply palette to ALL header links/icons */
 .main-header a, .main-header a:link, .main-header a:visited, .main-header svg {
-  color: #CEA9FF !important;  /* purple */
-  fill:  #CEA9FF !important;
+  color: #C199F5 !important;  /* purple */
+  fill:  #C199F5 !important;
   text-decoration: none;
   background: transparent;
 }
 .main-header a:hover, .main-header a:active, .main-header a:focus, .main-header a:hover svg {
-  color: #86C8FF !important;  /* blue */
-  fill:  #86C8FF !important;
+  color: #73BEFD !important;  /* blue */
+  fill:  #73BEFD !important;
 }
 
 /* === Remap THEME variables to CareMatch colors (affects body, footer, buttons, etc.) === */
 html{
   --background: #FFFFFF;
   --text: #111111;
-  --accent: #86C8FF;       /* hover/secondary */
-  --accent-dark: #CEA9FF;  /* primary headings/links */
-  --main: #CEA9FF;         /* primary UI color */
+  --accent: #73BEFD;       /* hover/secondary */
+  --accent-dark: #C199F5;  /* primary headings/links */
+  --main: #C199F5;         /* primary UI color */
   --main-dim: #E9DDFF;     /* softer (footer/bg accents) */
 }
 
