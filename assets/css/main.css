@@ -2140,36 +2140,44 @@ a.read-more:hover {
     .masthead,.toc,.page__share,.page__related,.pagination,.ads,.page__footer,.page__comments-form,.author__avatar,.author__content,.author__urls-wrapper,.nav__list,.sidebar,.adsbygoogle{display:none !important;height:1px !important}}
 
 # Color Customization
-/* Hide leftover logo image */
-.navbar-brand img, .logo img, .brand img, .site-title img { display: none !important; }
-
+/* --- CareMatch hard overrides --- */
 :root{
-  --brand: #86C8FF;        /* primary */
-  --brand-accent: #CEA9FF; /* secondary */
+  --brand: #86C8FF;
+  --brand-accent: #CEA9FF;
   --bg: #FFFFFF;
   --text: #111111;
 }
 
-.site-title,
-.site-title a,
+/* Header title color + font */
 .navbar-brand,
-.logo a,
-.brand a {
-  font-family: "Plus Jakarta Sans", system-ui, -apple-system, "Helvetica Neue", Arial, sans-serif;
-  font-weight: 700;
-  letter-spacing: .06em;
-  font-size: 28px;
-  color: var(--brand);
-  text-decoration: none;
-  text-transform: uppercase; /* remove if you don't want ALL CAPS */
+.navbar-brand a,
+.site-title,
+.site-title a {
+  font-family: "Plus Jakarta Sans", system-ui, -apple-system, "Helvetica Neue", Arial, sans-serif !important;
+  font-weight: 700 !important;
+  letter-spacing: .06em !important;
+  font-size: 28px !important;
+  color: var(--brand) !important;
+  text-decoration: none !important;
+  text-transform: uppercase; /* delete if you don't want ALL CAPS */
+}
+.navbar-brand:hover,
+.navbar-brand a:hover,
+.site-title a:hover {
+  color: var(--brand-accent) !important;
 }
 
-.site-title a:hover,
-.navbar-brand:hover,
-.logo a:hover,
-.brand a:hover { color: var(--brand-accent); }
+/* Body + links */
+body { background: var(--bg) !important; color: var(--text) !important; }
+a, .post-title a, .menu a:hover { color: var(--brand) !important; }
 
-body { background: var(--bg); color: var(--text); }
-a, .post-title a, .menu a:hover { color: var(--brand); }
-.btn, .tag, .pagination a.current { background-color: var(--brand); color: #fff; }
-.btn--alt, .tag--alt { background-color: var(--brand-accent); color: #fff; }
+/* Buttons / tags / pagination */
+.btn, .button, .btn-primary, .tag, .pagination a.current, .pagination .active a {
+  background-color: var(--brand) !important;
+  border-color: var(--brand) !important;
+  color: #fff !important;
+}
+.btn--alt, .tag--alt { background-color: var(--brand-accent) !important; color: #fff !important; }
+
+/* Hide any stray logo images just in case */
+.navbar-brand img, .logo img, .brand img, .site-title img { display: none !important; }
