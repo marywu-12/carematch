@@ -5,11 +5,13 @@ layout: default
   {% include header.html %}
   <div class="content wrapper">
 
+    {{ content }}
+
     {% assign featured = site.posts
       | where_exp: "p", "p.pin_on_home == true"
       | sort: "featured_order" %}
 
-    <ol class="post-card-box clearfix" style="margin-bottom: 32px;">
+    <ol class="post-card-box clearfix" style="margin-top: 24px;">
       {% for post in featured %}
         <li>
           <div class="post-card">
@@ -28,11 +30,11 @@ layout: default
       {% endfor %}
     </ol>
 
-    {{ content }}
-
     {% include search.html %}
 
-    {% comment %}{% include pagination.html %}{% endcomment %}
+    {% comment %}
+    {% include pagination.html %}
+    {% endcomment %}
 
     {% comment %}
     <div class="center-tags">
@@ -40,6 +42,7 @@ layout: default
       {% include tag_cloud.html %}
     </div>
     {% endcomment %}
-  </div>
+
+  </div> <!-- End Wrapper -->
   {% include footer.html %}
-</div>
+</div><!-- End flex-container -->
