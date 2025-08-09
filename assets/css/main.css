@@ -2195,17 +2195,21 @@ a:hover,
   display: none;
 }
 
-/* CareMatch brand color: purple default, blue on hover — highest specificity for the header link */
-.main-header .logo a,
-.main-header .logo a:link,
-.main-header .logo a:visited {
+/* CareMatch brand: purple default, blue hover — applies to ALL header links/icons */
+.main-header a,
+.main-header a:link,
+.main-header a:visited,
+.main-header svg {
   color: #CEA9FF !important;   /* purple */
+  fill: #CEA9FF !important;    /* for SVG icons */
   text-decoration: none;
   background: transparent;
 }
 
-.main-header .logo a:hover,
-.main-header .logo a:active,
-.main-header .logo a:focus {
+.main-header a:hover,
+.main-header a:active,
+.main-header a:focus,
+.main-header a:hover svg {
   color: #86C8FF !important;   /* blue on hover */
+  fill: #86C8FF !important;
 }
