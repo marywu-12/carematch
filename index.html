@@ -37,10 +37,13 @@ permalink: /
   </div>
 </section>
 
+<!-- Featured (pinned + ordered) -->
+{% assign featured = site.posts
+  | where_exp: "p", "p.pin_on_home == true"
+  | sort: "featured_order" %}
 
-<!-- Existing blog grid (unchanged) -->
 <ol class="post-card-box clearfix">
-  {% for post in paginator.posts %}
+  {% for post in featured %}
     <li>
       <div class="post-card">
         <a href="{{ post.url | relative_url }}"
