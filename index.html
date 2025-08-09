@@ -1,25 +1,55 @@
 ---
 layout: home-page
+title: CareMatch
+permalink: /
 ---
+
 {% include calculate_relative_base.html %}
 
+<!-- Hero / Mission -->
+<section class="cm-hero">
+  <div class="wrapper">
+    <h1>Our mission</h1>
+    <p class="sub">
+      CareMatch helps families find trustworthy, well-matched caregivers—faster and with more confidence.
+    </p>
+    <div class="cta">
+      <a class="btn" href="{{ '/about.html' | relative_url }}">How it works</a>
+      <a class="btn btn--alt" href="{{ '/team/' | relative_url }}">Meet the team</a>
+    </div>
+  </div>
+</section>
+
+<!-- Learn section -->
+<section class="cm-learn">
+  <div class="wrapper">
+    <h2>Learn</h2>
+    <ul class="cm-links">
+      <li><a href="{{ '/learn/what-is-alzheimers/' | relative_url }}">What is Alzheimer’s?</a></li>
+      <li><a href="{{ '/learn/what-caregiving-entails/' | relative_url }}">What caregiving entails</a></li>
+      <li><a href="{{ '/learn/finding-the-right-caregiver/' | relative_url }}">Finding the right caregiver</a></li>
+      <li><a href="{{ '/learn/safety-and-trust/' | relative_url }}">Safety and trust</a></li>
+    </ul>
+  </div>
+</section>
+
+<!-- Existing blog grid (unchanged) -->
 <ol class="post-card-box clearfix">
   {% for post in paginator.posts %}
-  {% include remove_double_slash.html %}
-  <li>
-    <div class="post-card">
-      <a href="{{ post_url }}" title="{{ post.title }}" class="post-card-image" style="background: url('{{ relativebase }}assets/img/{{ post.img }}') center no-repeat; background-size: cover;">
-      </a>
-      <div class="post-card-body">
-        <p class="post-card-title-and-meta">
-          
-          <a href="{{ post_url }}" class="post-card-link">
-          {{ post.title }}
-          </a>
-          {% include post_meta.html type="post-card-meta" date="none" %}
-        </p>
+    <li>
+      <div class="post-card">
+        <a href="{{ post.url | relative_url }}"
+           title="{{ post.title }}"
+           class="post-card-image"
+           style="background: url('{{ relativebase }}assets/img/{{ post.img }}') center no-repeat; background-size: cover;">
+        </a>
+        <div class="post-card-body">
+          <p class="post-card-title-and-meta">
+            <a href="{{ post.url | relative_url }}" class="post-card-link">{{ post.title }}</a>
+            {% include post_meta.html type="post-card-meta" date="none" %}
+          </p>
+        </div>
       </div>
-    </div>
-  </li>
+    </li>
   {% endfor %}
 </ol>
