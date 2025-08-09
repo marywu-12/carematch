@@ -4,9 +4,9 @@ description: 'Connecting families with the right caregivers.' # this means to ig
 permalink: ':title:output_ext'
 baseurl: "/carematch" # the subpath of your site, e.g. /blog
 url: "https://marywu-12.github.io" # the base hostname & protocol for your site, e.g. http://example.com
-logo: 
-logo-icon: 
-logo-icon-SEO:  # must be a non SVG file
+logo: ""
+logo-icon: ""
+logo-icon-SEO: "" # must be a non SVG file
 
 # Night/Dark mode
 # Default mode is "auto", "auto" is for auto nightshift
@@ -28,21 +28,21 @@ author-pic: Myself_Neon_grey.jpg
 about-author: CareMatch helps families find trustworthy, well-matched caregivers.
 
 # Contact links
-email:  # Add your Email address
-phone: # Add your Phone number
-website:  # Add your website
-linkedin:  # Add your Linkedin handle
-github:  # Add your Github handle
-twitter: # Add your Twitter handle
-bandcamp:  # Add your Bandcamp username
-stackoverflow:  # Add your stackoverflow account
+email: "" # Add your Email address
+phone: "" # Add your Phone number
+website: "" # Add your website
+linkedin: "" # Add your Linkedin handle
+github: "" # Add your Github handle
+twitter: "" # Add your Twitter handle
+bandcamp: "" # Add your Bandcamp username
+stackoverflow: "" # Add your stackoverflow account
 
 # Newsletter
-mailchimp: 
+mailchimp: ""
 
 # Tracker
-analytics: 
-fbadmin: 
+analytics: ""
+fbadmin: ""
 
 # Paginate
 paginate: 6
