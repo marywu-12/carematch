@@ -5,7 +5,7 @@ show_date: true
 title:  What is Caregiving? 
 date:  2025-08-09
 description: 
-img: assets/img/posts/homepage/caregiving.png
+img: posts/homepage/caregiving.png
 tags: []
 author: 
 pin_on_home: true
