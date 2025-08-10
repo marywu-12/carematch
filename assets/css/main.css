@@ -2397,6 +2397,10 @@ h1, h2, h3, h4, h5, h6,
   padding:0 20px;                      /* side padding like home */
 }
 
+.team-page {
+  padding-top: 60px; /* matches .cm-hero top padding */
+}
+
 /* Grid & card */
 .team-page .team-grid{
   display:grid;
@@ -2434,7 +2438,7 @@ h1, h2, h3, h4, h5, h6,
   gap:8px;
   padding:18px 18px 20px;
   flex:1;
-  background:#F6F0FF;                  /* soft purple panel */
+  background: #E3F4FF;                  /* for soft purple panel: #F6F0FF */
   border-top:1px solid #EADFFF;        /* subtle separator from photo */
 }
 
