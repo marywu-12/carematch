@@ -2353,3 +2353,15 @@ h1, h2, h3, h4, h5, h6,
 
 /* Optional: tighten spacing so it matches home */
 .post { margin-bottom: 36px; }
+
+/* Adjust footer brain icon alignment */
+.main-footer .logo-symbol {
+  display: flex;
+  align-items: center; /* centers vertically in the purple bar */
+  justify-content: center;
+}
+
+.main-footer .logo-symbol i {
+  position: relative;
+  top: 2px; /* fine-tune this number until it’s visually centered */
+}
