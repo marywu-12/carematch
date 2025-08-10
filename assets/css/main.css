@@ -2444,17 +2444,29 @@ h1, h2, h3, h4, h5, h6,
 }
 
 /* Member name link — accent color + same hover as home page */
+.team-page .linkedin-icon {
+  margin-left: 6px;
+  vertical-align: middle;
+  transition: fill 0.2s ease;
+}
+
 .team-page .member-name {
   text-decoration: none;
   border-bottom: 1px dashed transparent;
-  color: var(--accent-dark); /* main purple */
-  transition: color 0.2s ease, border-bottom-color 0.2s ease;
+  color: var(--accent-dark); /* purple */
+  display: inline-flex;
+  align-items: center;
 }
 
 .team-page .member-name:hover,
 .team-page .member-name:focus {
-  color: var(--accent); /* hover blue */
+  color: var(--accent); /* blue on hover */
   border-bottom-color: currentColor;
+}
+
+.team-page .member-name:hover .linkedin-icon,
+.team-page .member-name:focus .linkedin-icon {
+  fill: var(--accent); /* icon changes with text */
 }
 
 .team-page .role{
