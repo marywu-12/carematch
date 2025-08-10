@@ -2366,100 +2366,100 @@ h1, h2, h3, h4, h5, h6,
   top: 2px; /* fine-tune this number until it’s visually centered */
 }
 
-/* Team page to match Home page typography/margins */
-.team-page .page-title {
-  font-family: "Lora", serif;
-  font-weight: 700;
-  font-size: 42px;              /* match .cm-hero h1 */
-  color: var(--accent-dark);
-  text-align: center;
-  margin: 6px 0 8px;            /* similar to home hero spacing */
+/* ===== Team page: match Home look, fix centering, add colored body ===== */
+.team-page .page-title{
+  display:block;
+  width:100%;
+  text-align:center !important;
+  font-family:"Lora", serif;          /* match .cm-hero h1 */
+  font-weight:700;
+  font-size:42px;
+  color:var(--accent-dark);
+  margin:6px 0 8px;
 }
 
-.team-page .divider {
-  text-align: center;
-  font-size: 16px;              /* match home divider */
-  letter-spacing: 0.3em;
-  margin: 12px 0 20px;
-  opacity: 0.7;
-  display: block;
+.team-page .divider{
+  display:block;
+  text-align:center !important;
+  font-size:16px;                     /* match home divider */
+  letter-spacing:.3em;
+  margin:12px auto 20px auto;
+  opacity:.7;
 }
 
-.team-page .team-intro {
-  font-family: "Source Sans Pro", sans-serif;
-  font-size: 18px;              /* match home body */
-  line-height: 1.6;
-  color: var(--text);
-  max-width: 900px;             /* same readable width */
-  margin: 0 auto 24px auto;     /* centered like home hero text */
+.team-page .team-intro{
+  font-family:"Source Sans Pro", sans-serif;  /* match home body */
+  font-size:18px;
+  line-height:1.6;
+  color:var(--text);
+  max-width:900px;                     /* same readable width as home */
+  margin:0 auto 24px auto;             /* center block */
+  padding:0 20px;                      /* side padding like home */
 }
 
-/* Grid & card layout (kept from your current styles) */
-.team-grid {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 28px;
-  align-items: stretch;
-  margin-top: 10px;
-  margin-bottom: 60px;          /* ensure separation from footer */
+/* Grid & card */
+.team-page .team-grid{
+  display:grid;
+  grid-template-columns:repeat(2,1fr);
+  gap:28px;
+  align-items:stretch;
+  margin:10px auto 60px auto;          /* space from footer */
+  max-width:900px;                      /* align with home content width */
+  padding:0 20px;                       /* side padding like home */
 }
 
-.member {
-  display: flex;
-  flex-direction: column;
-  background: #fff;
-  border-radius: 12px;
-  box-shadow: 0 2px 10px rgba(0,0,0,0.04);
-  overflow: hidden;
+.team-page .member{
+  display:flex;
+  flex-direction:column;
+  background:#fff;
+  border-radius:12px;
+  box-shadow:0 2px 10px rgba(0,0,0,.04);
+  overflow:hidden;
 }
 
-/* Photo area: default shows placeholder; swap to inline bg-image when ready */
-.member-photo {
-  width: 100%;
-  height: 320px;                /* portrait */
-  background-color: #f2f2f2;    /* gray behind images */
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
+/* Photo */
+.team-page .member-photo{
+  width:100%;
+  height:320px;
+  background-color:#f2f2f2;
+  background-size:cover;
+  background-position:center;
+  background-repeat:no-repeat;
 }
 
-/* Placeholder now for everyone */
-.member-photo.default {
-  background-image: url('{{ "/assets/img/team/placeholder.png" | relative_url }}');
+/* Text body with colored background */
+.team-page .member-body{
+  display:flex;
+  flex-direction:column;
+  gap:8px;
+  padding:18px 18px 20px;
+  flex:1;
+  background:#F6F0FF;                  /* soft purple panel */
+  border-top:1px solid #EADFFF;        /* subtle separator from photo */
 }
 
-.member-body {
-  display: flex;
-  flex-direction: column;
-  gap: 8px;
-  padding: 16px 16px 18px;
-  flex: 1;
+.team-page .member-name{
+  text-decoration:none;
+  border-bottom:1px dashed transparent;
+  color:var(--accent-dark);
+}
+.team-page .member-name:hover,
+.team-page .member-name:focus{ border-bottom-color:currentColor; }
+
+.team-page .role{
+  font-size:.95rem;
+  font-weight:700;
+  color:#5a5a5a;
 }
 
-.member-name {
-  text-decoration: none;
-  border-bottom: 1px dashed transparent;
-  color: var(--accent-dark);
-}
-.member-name:hover,
-.member-name:focus {
-  border-bottom-color: currentColor;
+.team-page .bio{
+  font-size:.95rem;
+  color:#2c2c2c;
+  line-height:1.45;
 }
 
-.role {
-  font-size: 0.95rem;
-  font-weight: 600;
-  color: #5a5a5a;
-}
-
-.bio {
-  font-size: 0.95rem;
-  color: #2c2c2c;
-  line-height: 1.45;
-}
-
-/* Responsive: one column on mobile */
-@media (max-width: 768px) {
-  .team-grid { grid-template-columns: 1fr; }
-  .member-photo { height: 260px; }
+/* Mobile */
+@media (max-width:768px){
+  .team-page .team-grid{ grid-template-columns:1fr; }
+  .team-page .member-photo{ height:260px; }
 }
