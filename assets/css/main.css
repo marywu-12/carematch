@@ -2443,19 +2443,24 @@ h1, h2, h3, h4, h5, h6,
   border-top: 1px solid #EADFFF; /* subtle border */
 }
 
-/* Member name link — accent color + same hover as home page */
+/* LinkedIn icon — always visible, matches link color */
 .team-page .linkedin-icon {
   margin-left: 6px;
   vertical-align: middle;
+  fill: currentColor; /* match text color at all times */
   transition: fill 0.2s ease;
 }
 
+/* Member name link — accent color + same hover as home page */
 .team-page .member-name {
   text-decoration: none;
   border-bottom: 1px dashed transparent;
   color: var(--accent-dark); /* purple */
   display: inline-flex;
   align-items: center;
+  font-size: 1.1rem;
+  line-height: 1.2; /* tighter vertical spacing */
+  transition: color 0.2s ease, border-bottom-color 0.2s ease;
 }
 
 .team-page .member-name:hover,
@@ -2469,16 +2474,19 @@ h1, h2, h3, h4, h5, h6,
   fill: var(--accent); /* icon changes with text */
 }
 
-.team-page .role{
-  font-size:.95rem;
-  font-weight:700;
-  color:#5a5a5a;
+/* Role styling */
+.team-page .role {
+  margin-top: 0; /* close the gap under the name */
+  font-size: .95rem;
+  font-weight: 700;
+  color: #5a5a5a;
 }
 
-.team-page .bio{
-  font-size:.95rem;
-  color:#2c2c2c;
-  line-height:1.45;
+/* Bio styling */
+.team-page .bio {
+  font-size: .95rem;
+  color: #2c2c2c;
+  line-height: 1.45;
 }
 
 /* Mobile */
