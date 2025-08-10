@@ -2392,6 +2392,7 @@ h1, h2, h3, h4, h5, h6,
   gap: 28px;
   align-items: stretch; /* ensures cards stretch evenly */
   margin-top: 10px;
+  margin-bottom: 60px;
 }
 
 .member {
