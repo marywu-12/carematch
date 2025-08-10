@@ -2366,37 +2366,46 @@ h1, h2, h3, h4, h5, h6,
   top: 2px; /* fine-tune this number until it’s visually centered */
 }
 
-/* Team page aligns with site margins and uses a responsive column grid */
-/* Header + divider to match home page */
-.page-title {
-  margin-bottom: 8px;
+/* Team page to match Home page typography/margins */
+.team-page .page-title {
+  font-family: "Lora", serif;
+  font-weight: 700;
+  font-size: 42px;              /* match .cm-hero h1 */
+  color: var(--accent-dark);
   text-align: center;
+  margin: 6px 0 8px;            /* similar to home hero spacing */
 }
 
-.divider {
+.team-page .divider {
   text-align: center;
+  font-size: 16px;              /* match home divider */
   letter-spacing: 0.3em;
-  margin: 6px 0 22px;
+  margin: 12px 0 20px;
   opacity: 0.7;
+  display: block;
 }
 
-/* Intro paragraph spacing */
-.team-intro {
-  margin-bottom: 20px;
+.team-page .team-intro {
+  font-family: "Source Sans Pro", sans-serif;
+  font-size: 18px;              /* match home body */
+  line-height: 1.6;
+  color: var(--text);
+  max-width: 900px;             /* same readable width */
+  margin: 0 auto 24px auto;     /* centered like home hero text */
 }
 
-/* Two-column grid, equal-height cards */
+/* Grid & card layout (kept from your current styles) */
 .team-grid {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   gap: 28px;
-  align-items: stretch; /* ensures cards stretch evenly */
+  align-items: stretch;
   margin-top: 10px;
-  margin-bottom: 60px;
+  margin-bottom: 60px;          /* ensure separation from footer */
 }
 
 .member {
-  display: flex;              /* equal height layout */
+  display: flex;
   flex-direction: column;
   background: #fff;
   border-radius: 12px;
@@ -2404,15 +2413,19 @@ h1, h2, h3, h4, h5, h6,
   overflow: hidden;
 }
 
-/* Image with placeholder fallback via onerror in HTML */
+/* Photo area: default shows placeholder; swap to inline bg-image when ready */
 .member-photo {
   width: 100%;
-  height: 320px; /* portrait shape */
-  background-color: #f2f2f2; /* gray background always */
-  background-image: url('/assets/img/team/placeholder.png'); /* default placeholder */
+  height: 320px;                /* portrait */
+  background-color: #f2f2f2;    /* gray behind images */
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
+}
+
+/* Placeholder now for everyone */
+.member-photo.default {
+  background-image: url('{{ "/assets/img/team/placeholder.png" | relative_url }}');
 }
 
 .member-body {
@@ -2420,25 +2433,23 @@ h1, h2, h3, h4, h5, h6,
   flex-direction: column;
   gap: 8px;
   padding: 16px 16px 18px;
-  flex: 1;                    /* pushes footer area down if added later */
+  flex: 1;
 }
 
-/* Name (with LinkedIn placeholder link) */
 .member-name {
   text-decoration: none;
   border-bottom: 1px dashed transparent;
+  color: var(--accent-dark);
 }
-
 .member-name:hover,
 .member-name:focus {
   border-bottom-color: currentColor;
 }
 
-/* Distinguish role vs bio */
 .role {
   font-size: 0.95rem;
   font-weight: 600;
-  color: #5a5a5a;            /* muted to separate from name */
+  color: #5a5a5a;
 }
 
 .bio {
@@ -2447,12 +2458,8 @@ h1, h2, h3, h4, h5, h6,
   line-height: 1.45;
 }
 
-/* Responsive */
+/* Responsive: one column on mobile */
 @media (max-width: 768px) {
-  .team-grid {
-    grid-template-columns: 1fr;
-  }
-  .member img {
-    height: 220px;
-  }
+  .team-grid { grid-template-columns: 1fr; }
+  .member-photo { height: 260px; }
 }
