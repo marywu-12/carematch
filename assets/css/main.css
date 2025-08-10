@@ -2432,23 +2432,30 @@ h1, h2, h3, h4, h5, h6,
 }
 
 /* Text body with colored background */
-.team-page .member-body{
-  display:flex;
-  flex-direction:column;
-  gap:8px;
-  padding:18px 18px 20px;
-  flex:1;
-  background: #E3F4FF;                  /* for soft purple panel: #F6F0FF */
-  border-top:1px solid #EADFFF;        /* subtle separator from photo */
+/* Member card text box — light purple background */
+.team-page .member-body {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  padding: 18px 18px 20px;
+  flex: 1;
+  background: #F6F0FF;         /* soft purple */
+  border-top: 1px solid #EADFFF; /* subtle border */
 }
 
-.team-page .member-name{
-  text-decoration:none;
-  border-bottom:1px dashed transparent;
-  color:var(--accent-dark);
+/* Member name link — accent color + same hover as home page */
+.team-page .member-name {
+  text-decoration: none;
+  border-bottom: 1px dashed transparent;
+  color: var(--accent-dark); /* main purple */
+  transition: color 0.2s ease, border-bottom-color 0.2s ease;
 }
+
 .team-page .member-name:hover,
-.team-page .member-name:focus{ border-bottom-color:currentColor; }
+.team-page .member-name:focus {
+  color: var(--accent); /* hover blue */
+  border-bottom-color: currentColor;
+}
 
 .team-page .role{
   font-size:.95rem;
