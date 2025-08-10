@@ -2367,29 +2367,87 @@ h1, h2, h3, h4, h5, h6,
 }
 
 /* Team page aligns with site margins and uses a responsive column grid */
+/* Header + divider to match home page */
+.page-title {
+  margin-bottom: 8px;
+}
+
+.divider {
+  text-align: center;
+  letter-spacing: 0.3em;
+  margin: 6px 0 22px;
+  opacity: 0.7;
+}
+
+/* Intro paragraph spacing */
+.team-intro {
+  margin-bottom: 20px;
+}
+
+/* Two-column grid, equal-height cards */
 .team-grid {
   display: grid;
-  grid-template-columns: repeat(2, 1fr); /* two columns */
-  gap: 30px; /* space between members */
-  margin-top: 30px;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 28px;
+  align-items: stretch; /* ensures cards stretch evenly */
+  margin-top: 10px;
 }
 
 .member {
+  display: flex;              /* equal height layout */
+  flex-direction: column;
   background: #fff;
-  padding: 20px;
-  border-radius: 10px;
-  text-align: center;
+  border-radius: 12px;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.04);
+  overflow: hidden;
 }
 
+/* Image with placeholder fallback via onerror in HTML */
 .member img {
   width: 100%;
-  height: 250px; /* fixed height for uniform rows */
+  height: 240px;              /* consistent row height */
   object-fit: cover;
-  border-radius: 8px;
+  background: #f2f2f2;        /* placeholder bg behind images */
 }
 
+.member-body {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  padding: 16px 16px 18px;
+  flex: 1;                    /* pushes footer area down if added later */
+}
+
+/* Name (with LinkedIn placeholder link) */
+.member-name {
+  text-decoration: none;
+  border-bottom: 1px dashed transparent;
+}
+
+.member-name:hover,
+.member-name:focus {
+  border-bottom-color: currentColor;
+}
+
+/* Distinguish role vs bio */
+.role {
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: #5a5a5a;            /* muted to separate from name */
+}
+
+.bio {
+  font-size: 0.95rem;
+  color: #2c2c2c;
+  line-height: 1.45;
+}
+
+/* Responsive */
 @media (max-width: 768px) {
   .team-grid {
-    grid-template-columns: 1fr; /* single column on small screens */
+    grid-template-columns: 1fr;
+  }
+  .member img {
+    height: 220px;
   }
 }
