@@ -14,53 +14,74 @@
           <li>
             <a href="{{ relativebase }}">
               <div class="left">Home</div>  
-              <div class="right"><i class="fa fa-home" aria-hidden="true"></i></div>
+              <div class="right"><i class="fa-regular fa-house"></i></div>
             </a>
           </li>
-            <!-- About (dropdown) -->
-              <li class="has-submenu">
-                <a href="#">
-                  <div class="left">About</div>
-                  <div class="right"><i class="fa-regular fa-circle-info"></i></div>
-                </a>
-                <ul class="submenu">
-                  <li><a href="{{ relativebase }}mission.html">Mission</a></li>
-                  <li><a href="{{ relativebase }}strategy.html">Strategy</a></li>
-                  <li><a href="{{ relativebase }}faq.html">FAQ</a></li>
-                  <li><a href="{{ relativebase }}team.html">Team</a></li>
-                </ul>
-              </li>
-              
-              <!-- Resources (dropdown) -->
-              <li class="has-submenu">
-                <a href="#">
-                  <div class="left">Resources</div>
-                  <div class="right"><i class="fa-regular fa-book"></i></div>
-                </a>
-                <ul class="submenu">
-                  <li><a href="{{ relativebase }}updates.html">Updates</a></li>
-                  <li><a href="{{ relativebase }}archive.html">Blog</a></li>
-                  <li><a href="{{ relativebase }}partners.html">Partners</a></li>
-                  <li><a href="{{ relativebase }}survey.html">Survey</a></li>
-                </ul>
-              </li>
-              
-              <!-- Get Involved -->
-              <li>
-                <a href="{{ relativebase }}contact.html">
-                  <div class="left">Get Involved</div>
-                  <div class="right"><i class="fa-regular fa-hand-holding-heart"></i></div>
-                </a>
-              </li>
 
+          <!-- About (Dropdown) -->
+          <li class="has-submenu">
+            <a href="#">
+              <div class="left">About</div>
+              <div class="right"><i class="fa-regular fa-circle-info"></i></div>
+            </a>
+            <ul class="submenu">
+              <li><a href="{{ relativebase }}mission.html">Mission</a></li>
+              <li><a href="{{ relativebase }}strategy.html">Strategy</a></li>
+              <li><a href="{{ relativebase }}faq.html">FAQ</a></li>
+              <li><a href="{{ relativebase }}team.html">Team</a></li>
+            </ul>
+          </li>
+
+          <!-- Resources (Dropdown) -->
+          <li class="has-submenu">
+            <a href="#">
+              <div class="left">Resources</div>
+              <div class="right"><i class="fa-regular fa-book"></i></div>
+            </a>
+            <ul class="submenu">
+              <li><a href="{{ relativebase }}updates.html">Updates</a></li>
+              <li><a href="{{ relativebase }}archive.html">Blog</a></li>
+              <li><a href="{{ relativebase }}partners.html">Partners</a></li>
+              <li><a href="{{ relativebase }}survey.html">Survey</a></li>
+            </ul>
+          </li>
+
+          <!-- Get Involved -->
+          <li>
+            <a href="{{ relativebase }}contact.html">
+              <div class="left">Get Involved</div>
+              <div class="right"><i class="fa-regular fa-hand-holding-heart"></i></div>
+            </a>
+          </li>
         </ul>
       </nav>
+
       {% capture logo_url %}{{ relativebase }}{{ site.logo  }}{% endcapture %}
       {% assign logo_url = logo_url | replace: "//", "/" %}
-      <div class="logo"><a class="navbar-brand site-title" href="{{ relativebase }}">{% if site.logo and site.logo != "" %}<img class="logo" id="logo" src="{{ logo_url }}" alt="{{ site.title }}">{% else %}{{ site.title }}{% endif %}</a></div>
+      <div class="logo">
+        <a class="navbar-brand site-title" href="{{ relativebase }}">
+          {% if site.logo and site.logo != "" %}
+            <img class="logo" id="logo" src="{{ logo_url }}" alt="{{ site.title }}">
+          {% else %}
+            {{ site.title }}
+          {% endif %}
+        </a>
+      </div>
       <div class="search-icon-container">
         <span class="search-icon"><a><i class="fa fa-search" aria-hidden="true"></i></a></span>
       </div>
     </div>
   </div>
-</header> <!-- End Header -->
+</header>
+
+<!-- Dropdown Toggle Script -->
+<script>
+document.addEventListener("DOMContentLoaded", function() {
+  document.querySelectorAll(".has-submenu > a").forEach(function(parentLink) {
+    parentLink.addEventListener("click", function(e) {
+      e.preventDefault();
+      parentLink.parentElement.classList.toggle("open");
+    });
+  });
+});
+</script>
