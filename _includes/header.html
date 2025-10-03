@@ -122,3 +122,14 @@ document.addEventListener("DOMContentLoaded", function() {
   });
 });
 </script>
+
+<script>
+document.addEventListener('DOMContentLoaded', function () {
+  var touch = window.matchMedia('(hover: none)').matches;
+  document.querySelectorAll('.has-submenu > a').forEach(function (trigger) {
+    trigger.addEventListener('click', function (e) {
+      if (touch) { e.preventDefault(); trigger.parentElement.classList.toggle('open'); }
+    });
+  });
+});
+</script>
