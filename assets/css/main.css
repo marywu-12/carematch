@@ -2496,12 +2496,11 @@ h1, h2, h3, h4, h5, h6,
 }
 
 
-/* Keep icons on the right (top-level rows already use .right) */
-.main-nav .right { float: right; margin-left: 10px; }
-.main-nav i { font-size: 18px; color: var(--brand); }
-.main-nav a:hover i { color: var(--brand-accent); }
+/* Dropdown menus */
+.has-submenu {
+  position: relative;
+}
 
-/* Submenus are hidden by default */
 .has-submenu > .submenu {
   display: none;
   list-style: none;
@@ -2509,21 +2508,26 @@ h1, h2, h3, h4, h5, h6,
   padding: 0;
 }
 
-/* On hover (desktop), make submenu's children flow as normal rows */
-.has-submenu:hover > .submenu,
-.has-submenu.open > .submenu {   /* .open lets us support click on mobile too */
-  display: contents;              /* preserves your row spacing & borders */
+.has-submenu:hover > .submenu {
+  display: block;
 }
 
-/* Submenu rows look exactly like normal rows */
 .submenu li a {
-  /* do NOT change paddings/margins here to keep spacing identical */
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 14px 0; /* same spacing as top level */
   color: var(--text);
   text-decoration: none;
+  border-bottom: 1px solid #eee; /* same separator line */
 }
 
-/* No icons on submenu rows */
-.submenu li .right { display: none; }
+.submenu li a:hover {
+  background: none;  /* no purple background */
+  color: var(--accent-dark);
+}
 
-/* Optional: tiny visual indent for submenu text (remove if you want zero change) */
-.submenu li .left { padding-left: 12px; }
+/* icons aligned right */
+.main-nav ul li a .right {
+  margin-left: auto;
+}
