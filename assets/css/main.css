@@ -2512,19 +2512,30 @@ h1, h2, h3, h4, h5, h6,
   display: block;
 }
 
+/* Shared link styling: top-level + submenu */
+.main-nav > li > a,
 .submenu li a {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 14px 0; /* same spacing as top level */
-  color: var(--text);
+  padding: 14px 0;                /* consistent vertical spacing */
   text-decoration: none;
-  border-bottom: 1px solid #eee; /* same separator line */
+  color: var(--text);
+  border-bottom: 1px solid transparent; /* reserve space for line */
+  box-sizing: border-box;
 }
 
+/* Separator lines for submenu only */
+.submenu li a {
+  border-bottom-color: #eee;
+}
+
+/* Hover styles */
+.main-nav > li > a:hover,
 .submenu li a:hover {
-  background: none;  /* no purple background */
+  background: none;
   color: var(--accent-dark);
+  border-bottom-color: #eee;      /* makes top-level match submenu */
 }
 
 /* icons aligned right */
