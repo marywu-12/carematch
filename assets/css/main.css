@@ -2512,7 +2512,7 @@ h1, h2, h3, h4, h5, h6,
   display: block;
 }
 
-/* Shared link styling: top-level + submenu */
+/* Top-level links */
 .main-nav > li > a {
   display: flex;
   justify-content: space-between;
@@ -2524,14 +2524,15 @@ h1, h2, h3, h4, h5, h6,
   box-sizing: border-box;
 }
 
+/* Submenu links (indented) */
 .submenu li a {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 14px 0 14px 24px;                /* consistent vertical spacing */
+  padding: 14px 0 14px 24px;       /* add left indent here */
   text-decoration: none;
   color: var(--text);
-  border-bottom: 1px solid transparent; /* reserve space for line */
+  border-bottom: 1px solid #eee;
   box-sizing: border-box;
 }
 
@@ -2540,7 +2541,7 @@ h1, h2, h3, h4, h5, h6,
 .submenu li a:hover {
   background: none;
   color: var(--accent-dark);
-  border-bottom-color: #eee;      /* makes top-level match submenu */
+  border-bottom-color: #eee;       /* keeps visual consistency */
 }
 
 /* icons aligned right */
