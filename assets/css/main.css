@@ -2144,7 +2144,7 @@ a.read-more:hover {
 
 /* Brand palette */
 :root {
-  --brand: #C199F5;        /* purple main */
+  --brand: #441261;        /* purple main */
   --brand-accent: #73BEFD; /* blue hover */
   --bg: #FFFFFF;           /* white */
   --text: #111111;         /* black */
@@ -2169,8 +2169,8 @@ body { background: var(--bg); color: var(--text); }
 
 /* Apply palette to ALL header links/icons */
 .main-header a, .main-header a:link, .main-header a:visited, .main-header svg {
-  color: #C199F5 !important;  /* purple */
-  fill:  #C199F5 !important;
+  color: #441261 !important;  /* purple */
+  fill:  #441261 !important;
   text-decoration: none;
   background: transparent;
 }
@@ -2184,8 +2184,8 @@ html{
   --background: #FFFFFF;
   --text: #111111;
   --accent: #73BEFD;       /* hover/secondary */
-  --accent-dark: #C199F5;  /* primary headings/links */
-  --main: #C199F5;         /* primary UI color */
+  --accent-dark: #441261;  /* primary headings/links */
+  --main: #441261;         /* primary UI color */
   --main-dim: #E9DDFF;     /* softer (footer/bg accents) */
 }
 
