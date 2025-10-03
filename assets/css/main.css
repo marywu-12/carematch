@@ -2145,7 +2145,7 @@ a.read-more:hover {
 /* Brand palette */
 :root {
   --brand: #441261;        /* purple main */
-  --brand-accent: #73BEFD; /* blue hover */
+  --brand-accent: #B0C6DC; /* blue hover */
   --bg: #FFFFFF;           /* white */
   --text: #111111;         /* black */
 }
@@ -2175,18 +2175,18 @@ body { background: var(--bg); color: var(--text); }
   background: transparent;
 }
 .main-header a:hover, .main-header a:active, .main-header a:focus, .main-header a:hover svg {
-  color: #73BEFD !important;  /* blue */
-  fill:  #73BEFD !important;
+  color: #B0C6DC !important;  /* blue */
+  fill:  #B0C6DC !important;
 }
 
 /* === Remap THEME variables to CareMatch colors (affects body, footer, buttons, etc.) === */
 html{
   --background: #FFFFFF;
   --text: #111111;
-  --accent: #73BEFD;       /* hover/secondary */
+  --accent: #B0C6DC;       /* hover/secondary */
   --accent-dark: #441261;  /* primary headings/links */
   --main: #441261;         /* primary UI color */
-  --main-dim: #E9DDFF;     /* softer (footer/bg accents) */
+  --main-dim: #CA91E3;     /* softer (footer/bg accents) */
 }
 
 /* Global links in content */
