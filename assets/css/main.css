@@ -2529,7 +2529,7 @@ h1, h2, h3, h4, h5, h6,
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 14px 0 14px 24px;       /* add left indent here */
+  padding: 14px 0 14px 24px !important;       /* add left indent here */
   text-decoration: none;
   color: var(--text);
   border-bottom: 1px solid #eee;
