@@ -2513,7 +2513,17 @@ h1, h2, h3, h4, h5, h6,
 }
 
 /* Shared link styling: top-level + submenu */
-.main-nav > li > a,
+.main-nav > li > a {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 14px 0;                 /* flush left, no indent */
+  text-decoration: none;
+  color: var(--text);
+  border-bottom: 1px solid transparent; /* prevents spacing jump */
+  box-sizing: border-box;
+}
+
 .submenu li a {
   display: flex;
   justify-content: space-between;
@@ -2523,11 +2533,6 @@ h1, h2, h3, h4, h5, h6,
   color: var(--text);
   border-bottom: 1px solid transparent; /* reserve space for line */
   box-sizing: border-box;
-}
-
-/* Separator lines for submenu only */
-.submenu li a {
-  border-bottom-color: #eee;
 }
 
 /* Hover styles */
