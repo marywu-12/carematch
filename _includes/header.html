@@ -10,85 +10,52 @@
       <nav class="main-nav">
         <span class="menu-icon-close"><i class="fa fa-times" aria-hidden="true"></i></span>
 
-        
         <ul>
           <!-- Home -->
           <li>
             <a href="{{ relativebase }}">
-              <div class="left">Home</div>  
+              <div class="left">Home</div>
               <div class="right"><i class="fa fa-home"></i></div>
             </a>
           </li>
         
-           <!-- About (submenu rows appear under this row) -->
-            <li class="has-submenu">
-              <a href="#">
-                <div class="left">About</div>
-                <div class="right"><i class="fa fa-info-circle"></i></div>
-              </a>
-              <ul class="submenu">
-                <li>
-                  <a href="{{ relativebase }}mission.html">
-                    <div class="left">Mission</div><div class="right"></div>
-                  </a>
-                </li>
-                <li>
-                  <a href="{{ relativebase }}strategy.html">
-                    <div class="left">Strategy</div><div class="right"></div>
-                  </a>
-                </li>
-                <li>
-                  <a href="{{ relativebase }}faq.html">
-                    <div class="left">FAQ</div><div class="right"></div>
-                  </a>
-                </li>
-                <li>
-                  <a href="{{ relativebase }}team.html">
-                    <div class="left">Team</div><div class="right"></div>
-                  </a>
-                </li>
-              </ul>
-            </li>
-            
-            <!-- Resources (submenu rows appear under this row) -->
-            <li class="has-submenu">
-              <a href="#">
-                <div class="left">Resources</div>
-                <div class="right"><i class="fa fa-book"></i></div>
-              </a>
-              <ul class="submenu">
-                <li>
-                  <a href="{{ relativebase }}updates.html">
-                    <div class="left">Updates</div><div class="right"></div>
-                  </a>
-                </li>
-                <li>
-                  <a href="{{ relativebase }}archive.html">
-                    <div class="left">Blog</div><div class="right"></div>
-                  </a>
-                </li>
-                <li>
-                  <a href="{{ relativebase }}partners.html">
-                    <div class="left">Partners</div><div class="right"></div>
-                  </a>
-                </li>
-                <li>
-                  <a href="{{ relativebase }}survey.html">
-                    <div class="left">Survey</div><div class="right"></div>
-                  </a>
-                </li>
-              </ul>
-            </li>
-
+          <!-- About with dropdown -->
+          <li class="has-submenu">
+            <a href="#">
+              <div class="left">About</div>
+              <div class="right"><i class="fa fa-info-circle"></i></div>
+            </a>
+            <ul class="submenu">
+              <li><a href="{{ relativebase }}mission.html">Mission</a></li>
+              <li><a href="{{ relativebase }}strategy.html">Strategy</a></li>
+              <li><a href="{{ relativebase }}faq.html">FAQ</a></li>
+              <li><a href="{{ relativebase }}team.html">Team</a></li>
+            </ul>
+          </li>
+        
+          <!-- Resources with dropdown -->
+          <li class="has-submenu">
+            <a href="#">
+              <div class="left">Resources</div>
+              <div class="right"><i class="fa fa-book"></i></div>
+            </a>
+            <ul class="submenu">
+              <li><a href="{{ relativebase }}updates.html">Updates</a></li>
+              <li><a href="{{ relativebase }}archive.html">Blog</a></li>
+              <li><a href="{{ relativebase }}partners.html">Partners</a></li>
+              <li><a href="{{ relativebase }}survey.html">Survey</a></li>
+            </ul>
+          </li>
         
           <!-- Get Involved -->
           <li>
-            <a href="{{ relativebase }}contact.html">
+            <a href="{{ relativebase }}get-involved.html">
               <div class="left">Get Involved</div>
               <div class="right"><i class="fa fa-users"></i></div>
             </a>
           </li>
         </ul>
+
 
 
       </nav>
