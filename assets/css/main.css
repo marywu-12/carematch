@@ -2503,21 +2503,17 @@ h1, h2, h3, h4, h5, h6,
 
 .has-submenu > .submenu {
   display: none;
-  position: absolute;
-  top: 100%;
-  left: 0;
   list-style: none;
   margin: 0;
-  padding: 8px 0;
+  padding: 0;
   background: #fff;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
-  border-radius: 6px;
-  min-width: 180px;
-  z-index: 100;
+  border-left: 2px solid var(--main-dim); /* subtle indent */
 }
 
 .has-submenu:hover > .submenu {
   display: block;
+  position: relative;
+  margin-left: 20px; /* indent submenu items */
 }
 
 .submenu li a {
@@ -2525,10 +2521,24 @@ h1, h2, h3, h4, h5, h6,
   padding: 10px 15px;
   color: var(--text);
   text-decoration: none;
-  font-weight: 400;
+  font-size: 15px;
 }
 
 .submenu li a:hover {
-  background: var(--main-dim);
   color: var(--accent-dark);
+  background: transparent; /* remove purple background highlight */
+}
+
+/* Icons stay aligned right */
+.main-nav .right {
+  float: right;
+  margin-left: 10px;
+}
+
+.main-nav i {
+  font-size: 18px;
+  color: var(--brand);
+}
+.main-nav a:hover i {
+  color: var(--brand-accent);
 }
