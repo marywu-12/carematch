@@ -2549,67 +2549,78 @@ h1, h2, h3, h4, h5, h6,
   margin-left: auto;
 }
 
-/* ===== Fixed header height + independent logo size ===== */
+/* ===== Fixed header height; logo size independent; true centering ===== */
 :root{
-  --header-h: 84px;   /* header height (change this only if you want the bar taller/shorter) */
-  --logo-h:   56px;   /* logo image height (independent of the header height) */
+  --header-h: 84px;  /* header bar height */
+  --logo-h:   56px;  /* logo image height (change this without touching header) */
 }
 
-/* Make the header a fixed-height grid: [left] [center logo] [right] */
-.site-header {
-  height: var(--header-h);
-  padding: 0;
-  border-bottom: 1px solid rgba(0,0,0,.06); /* keep your divider if desired */
-}
+/* Make sure nothing else sets the layout model */
 .site-header,
 .site-header .inner,
 header.site-header .wrap {
-  display: grid;
-  grid-template-columns: 1fr auto 1fr;
-  align-items: center;
-  height: 100%;
+  display: block !important;
 }
 
-/* Left / right controls stay at edges */
+/* Lock the bar height and prevent children from stretching it */
+.site-header{
+  position: relative;
+  height: var(--header-h);
+  padding: 0 !important;
+  margin: 0;
+  line-height: 0;
+  overflow: hidden;                 /* critical: prevents the logo from growing the bar */
+  border-bottom: 1px solid rgba(0,0,0,.06);
+}
+
+/* Left menu / right search: vertically center at edges */
 .site-header .menu-toggle,
 .site-header .nav-toggle,
-.site-header .header-left { justify-self: start; }
+.site-header .header-left {
+  position: absolute;
+  left: 20px;
+  top: 50%;
+  transform: translateY(-50%);
+}
 .site-header .search-toggle,
-.site-header .header-right { justify-self: end; }
+.site-header .header-right {
+  position: absolute;
+  right: 20px;
+  top: 50%;
+  transform: translateY(-50%);
+}
 
-/* Center the logo block in the middle grid cell */
+/* Center the logo block independently of header height */
 .site-header .logo,
 .site-header .site-branding,
 .site-header .site-title {
-  grid-column: 2;
-  justify-self: center;
-  line-height: 0;   /* remove inline gaps */
-  margin: 0;
+  position: absolute !important;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%); /* perfect horizontal + vertical center */
+  margin: 0 !important;
+  line-height: 0 !important;
 }
 
-/* The logo’s size is controlled ONLY by --logo-h, not by header height */
+/* Control ONLY the image size (independent of header height) */
 .site-header .logo img,
-.site-header .site-branding img {
-  height: var(--logo-h);
-  width: auto;
-  max-height: none;         /* don’t clamp to header height */
+.site-header .site-branding img,
+.site-header .site-title img {
+  height: var(--logo-h) !important;
+  width: auto !important;
   display: block;
   object-fit: contain;
 }
 
-/* If the SVG or IMG has inline width/height attributes, override them */
+/* If the SVG/IMG has inline width/height attributes, override them */
 .site-header .logo img[width][height],
-.site-header .site-branding img[width][height] {
+.site-header .site-branding img[width][height],
+.site-header .site-title img[width][height]{
   height: var(--logo-h) !important;
   width: auto !important;
 }
 
-/* Kill accidental extra space from headings etc. */
-.site-header .site-title a { display:inline-block; line-height:0; }
-.site-header .site-title { font-size:0; line-height:0; margin:0; }
-
-/* Mobile tweaks */
+/* Mobile: shorter bar + smaller logo */
 @media (max-width: 768px){
   :root{ --header-h: 72px; --logo-h: 44px; }
 }
-
