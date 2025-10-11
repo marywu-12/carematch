@@ -2549,25 +2549,26 @@ h1, h2, h3, h4, h5, h6,
   margin-left: auto;
 }
 
-/* ---------- Header fixed height ---------- */
+/* ---------- Header fixed at default height ---------- */
 header.main-header {
-  height: 48px;             /* fixed header height (adjust to your design) */
+  height: 48px;                /* fixed navbar height */
+  display: flex;
+  align-items: center;
 }
 
-/* ---------- Center the logo within the fixed header ---------- */
+/* ---------- Keep logo centered within header ---------- */
 header .logo {
   display: flex;
   align-items: center;
   justify-content: center;
-  height: 100%;              /* same as header height */
-  overflow: hidden;          /* ensures zoomed logo doesn’t push layout */
+  height: 100%;                /* match header height */
+  overflow: hidden;            /* ensure no overflow */
 }
 
-/* ---------- Logo sizing (enlarged within fixed box) ---------- */
+/* ---------- Logo fills most of the header height ---------- */
 header .logo img {
-  max-height: 120%;          /* enlarge beyond normal, stays within box */
-  width: auto;
-  object-fit: contain;
-  transform: scale(1.1);     /* subtle zoom, but contained */
-  transition: transform 0.2s ease-in-out;
+  height: 90%;                 /* fills most of the 48px area */
+  width: auto;                 /* preserves aspect ratio */
+  object-fit: contain;         /* keeps proportions perfect */
+  transform: none;             /* avoid pushing layout */
 }
