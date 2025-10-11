@@ -2549,12 +2549,25 @@ h1, h2, h3, h4, h5, h6,
   margin-left: auto;
 }
 
-/* ---------- Logo sizing fix ---------- */
+/* ---------- Header fixed height ---------- */
+header.main-header {
+  height: 48px;             /* fixed header height (adjust to your design) */
+}
+
+/* ---------- Center the logo within the fixed header ---------- */
+header .logo {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;              /* same as header height */
+  overflow: hidden;          /* ensures zoomed logo doesn’t push layout */
+}
+
+/* ---------- Logo sizing (enlarged within fixed box) ---------- */
 header .logo img {
-  height: 100px;           /* increase visual size */
-  width: auto;            /* preserve aspect ratio */
-  object-fit: contain;    /* ensures no clipping */
-  vertical-align: middle;
-  transform: scale(1.3);  /* optional subtle zoom */
+  max-height: 120%;          /* enlarge beyond normal, stays within box */
+  width: auto;
+  object-fit: contain;
+  transform: scale(1.1);     /* subtle zoom, but contained */
   transition: transform 0.2s ease-in-out;
 }
