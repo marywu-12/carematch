@@ -2550,15 +2550,11 @@ h1, h2, h3, h4, h5, h6,
 }
 
 /* ---------- Logo sizing fix ---------- */
-header .logo {
-  height: 80px;            /* whatever your header height is */
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
 header .logo img {
-  max-height: 90%;         /* fills most of the header’s height */
-  width: auto;
-  object-fit: contain;
+  height: 80px;           /* increase visual size */
+  width: auto;            /* preserve aspect ratio */
+  object-fit: contain;    /* ensures no clipping */
+  vertical-align: middle;
+  transform: scale(1.3);  /* optional subtle zoom */
+  transition: transform 0.2s ease-in-out;
 }
