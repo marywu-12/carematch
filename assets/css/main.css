@@ -2549,39 +2549,9 @@ h1, h2, h3, h4, h5, h6,
   margin-left: auto;
 }
 
-/* ==== Compact header with independent logo size ==== */
-
-/* 1) Fix the header bar height (no extra padding affects it) */
-header {
-  height: 84px;            /* ← change this if you want the bar taller/shorter */
-  padding: 0 !important;
-  margin: 0;
-  line-height: 0;          /* kills inline-image extra space */
-  display: flex;
-  align-items: center;     /* vertical center for everything inside */
-  justify-content: center; /* horizontal center for the logo */
-  position: relative;
-  overflow: hidden;        /* ensures nothing makes it taller */
-}
-
-/* If your theme wraps the logo, make that wrapper fill the bar */
-header .logo {
-  height: 100%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  margin: 0;
-}
-
-/* 2) Control ONLY the logo size (independent of header height) */
+/* ---------- Logo sizing ---------- */
 header .logo img {
-  height: 56px;            /* ← adjust this to taste without changing the bar */
-  width: auto;
-  display: block;
-  object-fit: contain;
+  height: 48px;     /* adjust this number until it looks right */
+  width: auto;      /* keeps correct aspect ratio */
+  vertical-align: middle;
 }
-
-/* Keep edge icons aligned if you have a left menu/right search */
-header .menu-toggle,
-header .nav-toggle { position: absolute; left: 20px; top: 50%; transform: translateY(-50%); }
-header .search-toggle    { position: absolute; right: 20px; top: 50%; transform: translateY(-50%); }
