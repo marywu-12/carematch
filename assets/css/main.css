@@ -2548,3 +2548,10 @@ h1, h2, h3, h4, h5, h6,
 .main-nav ul li a .right {
   margin-left: auto;
 }
+
+/* ---------- Logo sizing ---------- */
+header .logo img {
+  height: 48px;     /* adjust this number until it looks right */
+  width: auto;      /* keeps correct aspect ratio */
+  vertical-align: middle;
+}
