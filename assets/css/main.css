@@ -2549,11 +2549,11 @@ h1, h2, h3, h4, h5, h6,
   margin-left: auto;
 }
 
+/* ---------- Logo sizing fix ---------- */
 header .logo img {
-  display: block;
-  max-height: 72px;     /* bigger, clean ratio */
-  width: auto;
-  height: auto;
-  object-fit: contain;
+  max-height: 72px;       /* control vertical size only */
+  width: auto;            /* preserve natural aspect ratio */
+  height: auto;           /* ensure no distortion */
   vertical-align: middle;
+  object-fit: contain;    /* adds safe scaling inside its box */
 }
