@@ -2549,56 +2549,67 @@ h1, h2, h3, h4, h5, h6,
   margin-left: auto;
 }
 
-/* ===== Header layout: perfectly centered logo, compact height ===== */
-
-/* Make the header a 3-column grid: [left icon] [center logo] [right icon] */
-.site-header,
-.site-header .inner,       /* include either wrapper if your theme has one */
-header.site-header .wrap { /* keeps it resilient across layouts */
-  display: grid;
-  grid-template-columns: 1fr auto 1fr;  /* center column shrinks to logo */
-  align-items: center;
-  padding: 12px 0;                       /* overall header height control */
-  min-height: 72px;                      /* tweak to taste */
+/* ===== Fixed header height + independent logo size ===== */
+:root{
+  --header-h: 84px;   /* header height (change this only if you want the bar taller/shorter) */
+  --logo-h:   56px;   /* logo image height (independent of the header height) */
 }
 
-/* Left and right controls stay at the edges */
+/* Make the header a fixed-height grid: [left] [center logo] [right] */
+.site-header {
+  height: var(--header-h);
+  padding: 0;
+  border-bottom: 1px solid rgba(0,0,0,.06); /* keep your divider if desired */
+}
+.site-header,
+.site-header .inner,
+header.site-header .wrap {
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;
+  align-items: center;
+  height: 100%;
+}
+
+/* Left / right controls stay at edges */
 .site-header .menu-toggle,
 .site-header .nav-toggle,
 .site-header .header-left { justify-self: start; }
 .site-header .search-toggle,
 .site-header .header-right { justify-self: end; }
 
-/* Ensure the logo is actually in the middle column */
+/* Center the logo block in the middle grid cell */
 .site-header .logo,
 .site-header .site-branding,
-.site-header .site-title {               /* whichever your markup uses */
+.site-header .site-title {
   grid-column: 2;
   justify-self: center;
-  line-height: 0;                        /* remove extra inline gap */
+  line-height: 0;   /* remove inline gaps */
   margin: 0;
 }
 
-/* Logo image sizing (increase from your current tiny size) */
+/* The logo’s size is controlled ONLY by --logo-h, not by header height */
 .site-header .logo img,
 .site-header .site-branding img {
-  height: 56px;          /* <- adjust: 48–64px usually looks good */
-  max-height: 56px;
-  width: auto;           /* preserve aspect ratio */
+  height: var(--logo-h);
+  width: auto;
+  max-height: none;         /* don’t clamp to header height */
   display: block;
   object-fit: contain;
 }
 
-/* Guard against inline width/height attributes on the img/SVG */
+/* If the SVG or IMG has inline width/height attributes, override them */
 .site-header .logo img[width][height],
 .site-header .site-branding img[width][height] {
-  height: 56px !important;
+  height: var(--logo-h) !important;
   width: auto !important;
 }
 
-/* Slightly smaller on mobile */
-@media (max-width: 768px) {
-  .site-header { min-height: 64px; padding: 10px 0; }
-  .site-header .logo img,
-  .site-header .site-branding img { height: 44px; max-height: 44px; }
+/* Kill accidental extra space from headings etc. */
+.site-header .site-title a { display:inline-block; line-height:0; }
+.site-header .site-title { font-size:0; line-height:0; margin:0; }
+
+/* Mobile tweaks */
+@media (max-width: 768px){
+  :root{ --header-h: 72px; --logo-h: 44px; }
 }
+
