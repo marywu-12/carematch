@@ -2549,16 +2549,31 @@ h1, h2, h3, h4, h5, h6,
   margin-left: auto;
 }
 
-/* ---------- Logo sizing override (allow overflow) ---------- */
+/* ----- Make header thinner ----- */
+header.main-header {
+  height: 48px;             
+  display: flex;
+  align-items: center;
+  position: relative;
+  z-index: 2;
+}
+
+/* ----- Allow logo to overflow ----- */
+header .logo {
+  position: relative;
+  height: 100%;             /* same as header height */
+  overflow: visible;        /* allow image to go outside */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* ----- Oversized logo, visually centered ----- */
 header .logo img {
-  height: 100px;             
-  width: auto;              
+  height: 90px;             /* adjust to your taste (80, 90, 100px) */
+  width: auto;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-40%); /* visually center — tweak 35–45% if needed */
   object-fit: contain;
-  vertical-align: middle;
-  overflow: visible !important;
-  
-  /* ✅ Minimal additions to stop header from expanding */
-  position: absolute;      /* removes it from header height flow */
-  top: 50%;               
-  transform: translateY(-50%); /* keeps it visually centered */
 }
