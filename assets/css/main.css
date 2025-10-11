@@ -2551,7 +2551,7 @@ h1, h2, h3, h4, h5, h6,
 
 /* ---------- Logo sizing fix ---------- */
 header .logo img {
-  max-height: 72px;       /* control vertical size only */
+  max-height: 88px;       /* control vertical size only */
   width: auto;            /* preserve natural aspect ratio */
   height: auto;           /* ensure no distortion */
   vertical-align: middle;
