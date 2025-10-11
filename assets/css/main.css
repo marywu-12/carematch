@@ -2551,7 +2551,7 @@ h1, h2, h3, h4, h5, h6,
 
 /* ---------- Logo sizing fix ---------- */
 header .logo img {
-  height: 80px;           /* increase visual size */
+  height: 100px;           /* increase visual size */
   width: auto;            /* preserve aspect ratio */
   object-fit: contain;    /* ensures no clipping */
   vertical-align: middle;
