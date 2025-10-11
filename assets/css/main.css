@@ -2549,3 +2549,40 @@ h1, h2, h3, h4, h5, h6,
   margin-left: auto;
 }
 
+/* ---------- Header + logo size (compact) ---------- */
+.site-header {               /* shrink vertical padding */
+  padding: 12px 0;
+}
+
+header .logo {               /* align logo nicely */
+  display: flex;
+  align-items: center;
+  line-height: 0;            /* kill extra inline gap */
+}
+
+header .logo img {           /* cap the logo itself */
+  height: 56px;              /* <- change to 48/64 to taste */
+  max-height: 56px;
+  width: auto;               /* keep aspect ratio */
+  display: block;
+  object-fit: contain;
+}
+
+/* if your logo sits inside a title element, nuke its text metrics */
+.site-title, .site-branding, header .logo h1 {
+  margin: 0;
+  font-size: 0;              /* prevents the title’s line-height from adding height */
+  line-height: 0;
+}
+
+/* SVGs with inline width/height attributes sometimes ignore CSS—force it */
+header .logo img[width][height] {
+  height: 56px !important;
+  width: auto !important;
+}
+
+/* Smaller on mobile */
+@media (max-width: 768px) {
+  header .logo img { height: 44px; max-height: 44px; }
+  .site-header { padding: 10px 0; }
+}
