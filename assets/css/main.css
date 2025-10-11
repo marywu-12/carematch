@@ -2577,3 +2577,9 @@ header .logo img {
   transform: translateY(+0%); /* visually center — tweak 35–45% if needed */
   object-fit: contain;
 }
+
+/* Align logo container to same width as content wrapper */
+header .logo {
+  max-width: var(--content-width, 960px);  /* fallback width */
+  margin: 0 auto;                          /* perfectly center within header */
+}
