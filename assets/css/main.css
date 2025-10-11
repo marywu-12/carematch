@@ -2551,7 +2551,7 @@ h1, h2, h3, h4, h5, h6,
 
 /* ---------- Logo sizing override (allow overflow) ---------- */
 header .logo img {
-  height: 80px;             /* increase this freely — try 80px, 100px, 120px */
+  height: 100px;             /* increase this freely — try 80px, 100px, 120px */
   width: auto;              /* maintain proportions */
   object-fit: contain;
   vertical-align: middle;
