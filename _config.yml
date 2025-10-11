@@ -4,7 +4,7 @@ description: 'Connecting families with the right caregivers.' # this means to ig
 permalink: ':title:output_ext'
 baseurl: "/carematch" # the subpath of your site, e.g. /blog
 url: "https://marywu-12.github.io" # the base hostname & protocol for your site, e.g. http://example.com
-logo: ""
+logo: /assets/img/logo.png
 logo-icon: ""
 logo-icon-SEO: "" # must be a non SVG file
 
