@@ -2574,6 +2574,6 @@ header .logo img {
   width: auto;
   position: absolute;
   top: 50%;
-  transform: translateY(-80%); /* visually center — tweak 35–45% if needed */
+  transform: translateY(+10%); /* visually center — tweak 35–45% if needed */
   object-fit: contain;
 }
