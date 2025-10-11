@@ -2551,9 +2551,14 @@ h1, h2, h3, h4, h5, h6,
 
 /* ---------- Logo sizing override (allow overflow) ---------- */
 header .logo img {
-  height: 100px;             /* increase this freely — try 80px, 100px, 120px */
-  width: auto;              /* maintain proportions */
+  height: 100px;             
+  width: auto;              
   object-fit: contain;
   vertical-align: middle;
-  overflow: visible !important; /* ensures it won't be clipped */
+  overflow: visible !important;
+  
+  /* ✅ Minimal additions to stop header from expanding */
+  position: absolute;      /* removes it from header height flow */
+  top: 50%;               
+  transform: translateY(-50%); /* keeps it visually centered */
 }
