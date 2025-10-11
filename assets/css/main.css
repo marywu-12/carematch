@@ -2551,7 +2551,7 @@ h1, h2, h3, h4, h5, h6,
 
 /* ----- Make header thinner ----- */
 header.main-header {
-  height: 80px;             
+  height: 90px;             
   display: flex;
   align-items: center;
   position: relative;
@@ -2570,10 +2570,10 @@ header .logo {
 
 /* ----- Oversized logo, visually centered ----- */
 header .logo img {
-  height: 100px;             /* adjust to your taste (80, 90, 100px) */
+  height: 120px;             /* adjust to your taste (80, 90, 100px) */
   width: auto;
   position: absolute;
   top: 50%;
-  transform: translateY(+10%); /* visually center — tweak 35–45% if needed */
+  transform: translateY(+0%); /* visually center — tweak 35–45% if needed */
   object-fit: contain;
 }
