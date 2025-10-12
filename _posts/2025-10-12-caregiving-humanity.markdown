@@ -2,7 +2,7 @@
 layout: post
 read_time: true
 show_date: true
-title:  Caregiving: Supporting and Honoring Their Humanity
+title:  "Caregiving: Supporting and Honoring Their Humanity"
 date:  2025-10-12
 description: 
 img: posts/homepage/caregiving.png
