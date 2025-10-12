@@ -2495,65 +2495,80 @@ h1, h2, h3, h4, h5, h6,
   .team-page .member-photo{ height:260px; }
 }
 
+/* ===== Sidebar submenu (click-to-open with LEFT chevron) ===== */
+/* NOTE: Keep your tiny JS that toggles .open on .has-submenu to prevent navigation. */
 
-/* ===== Sidebar submenu (click-to-open with caret) ===== */
-
-/* Parent that owns a submenu */
-.has-submenu {
-  position: relative;
-}
-
-/* Submenu: hidden by default, shown when parent has .open (toggled by JS) */
-.has-submenu > .submenu {
-  display: none;
+/* Reset/structure */
+.main-nav,
+.main-nav ul {
   list-style: none;
   margin: 0;
   padding: 0;
 }
-.has-submenu.open > .submenu {
-  display: block;
-}
+.main-nav { overflow: visible; }          /* allow chevron to sit outside */
+.main-nav > li { position: relative; }
 
-/* Top-level links (keep your spacing/format) */
+/* Parent that owns a submenu */
+.has-submenu { position: relative; }
+
+/* Submenu: hidden by default, shown when parent has .open (via JS) */
+.has-submenu > .submenu {
+  display: none;
+  margin: 0;
+  padding: 0;
+}
+.has-submenu.open > .submenu { display: block; }
+
+/* Top-level links */
 .main-nav > li > a {
   display: flex;
-  justify-content: space-between;
   align-items: center;
-  padding: 14px 0;                 /* flush left, no extra indent */
-  text-decoration: none;
-  color: var(--text);
-  border-bottom: 1px solid transparent; /* prevents jump on hover */
-  box-sizing: border-box;
-}
-
-/* Add a caret to parents (“About”, “Resources”) */
-.has-submenu > a {
-  position: relative;
-}
-.has-submenu > a::after {
-  content: "›";                    /* right-pointing caret */
-  font-size: 1.1em;
-  margin-left: 8px;
-  line-height: 1;
-  transition: transform 0.2s ease;
-}
-.has-submenu.open > a::after {
-  transform: rotate(90deg);        /* caret rotates when open */
-}
-
-/* Submenu links (indented to match your style) */
-.submenu li a {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 14px 0 14px 24px !important;  /* left indent only for submenu */
+  justify-content: space-between;         /* keeps your right icons aligned */
+  padding: 14px 0;
   text-decoration: none;
   color: var(--text);
   border-bottom: 1px solid #eee;
   box-sizing: border-box;
 }
 
-/* Hover/focus styles */
+/* Give room for the chevron and place it OUTSIDE the row on the left */
+.has-submenu > a {
+  position: relative;
+  padding-left: 28px;                      /* space so text doesn't collide */
+}
+
+/* Stylized chevron (CSS borders) before the title, outside the row */
+.has-submenu > a::before {
+  content: "";
+  position: absolute;
+  left: -16px;                             /* sits outside the aligned row */
+  top: 50%;
+  width: 8px;
+  height: 8px;
+  transform: translateY(-50%) rotate(-45deg);  /* ▸ */
+  border-right: 2px solid currentColor;
+  border-bottom: 2px solid currentColor;
+  transition: transform 0.2s ease;
+}
+
+/* Rotate chevron when open (points down) */
+.has-submenu.open > a::before {
+  transform: translateY(-50%) rotate(45deg);   /* ▾ */
+}
+
+/* Submenu links (keep your indentation/row style) */
+.submenu li a {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 14px 0 14px 24px !important;   /* left indent for submenu items */
+  text-decoration: none;
+  color: var(--text);
+  border-bottom: 1px solid #eee;
+  box-sizing: border-box;
+}
+
+/* Hover/focus states */
 .main-nav > li > a:hover,
 .main-nav > li > a:focus,
 .submenu li a:hover,
@@ -2564,16 +2579,15 @@ h1, h2, h3, h4, h5, h6,
   outline: none;
 }
 
-/* Icons aligned to the right inside links (keep) */
+/* Right-aligned icons inside links (keep) */
 .main-nav ul li a .right {
   margin-left: auto;
+  display: inline-flex;
 }
 
-/* Optional: reduce motion preference (no caret rotation) */
+/* Reduced motion: no chevron animation */
 @media (prefers-reduced-motion: reduce) {
-  .has-submenu > a::after {
-    transition: none;
-  }
+  .has-submenu > a::before { transition: none; }
 }
 
 /* ----- Make header thinner ----- */
