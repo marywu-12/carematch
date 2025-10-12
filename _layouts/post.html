@@ -24,30 +24,30 @@ layout: default
       <div class="page-content">
         <div class="header-page">
           <h1 class="page-title">{{ page.title }}</h1>
-          {% include post_meta.html type="post-page-meta" %}
-
-          {% if page.author or page.tags %}
-          <div class="post-meta-row">
-            {% if page.author %}
-              <span class="post-author">By {{ page.author }}</span>
-            {% endif %}
-          
+        
+          <!-- top meta row: date/read-time + tags + share -->
+          <div class="post-topmeta">
+            {% include post_meta.html type="post-page-meta" %}
+        
             {% if page.tags %}
-              <ul class="post-tags-under">
+              <span class="post-tags-inline">
+                <strong>Tags:</strong>
                 {% for tag in page.tags %}
-                  <li><a href="{{ relativebase }}tags/#{{ tag | slugify }}">{{ tag }}</a></li>
+                  <a href="{{ relativebase }}tags/#{{ tag | slugify }}">{{ tag }}</a>{% unless forloop.last %}, {% endunless %}
                 {% endfor %}
-              </ul>
+              </span>
             {% endif %}
-          
+        
             <div class="post-share-under">
               {% include share-icons.html %}
             </div>
           </div>
+        
+          {% if page.author %}
+            <div class="post-author">By {{ page.author }}</div>
           {% endif %}
-
-          
         </div>
+
         {%- comment -%} {% include sidebar.html context="post" class="side" id="sidebar" %} {%- endcomment -%}
         {% if page.toc %}{% include sidebar-toc.html %}{% endif %}
         {% include github-button.html %}
