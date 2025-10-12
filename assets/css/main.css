@@ -2496,57 +2496,84 @@ h1, h2, h3, h4, h5, h6,
 }
 
 
-/* Dropdown menus */
+/* ===== Sidebar submenu (click-to-open with caret) ===== */
+
+/* Parent that owns a submenu */
 .has-submenu {
   position: relative;
 }
 
+/* Submenu: hidden by default, shown when parent has .open (toggled by JS) */
 .has-submenu > .submenu {
   display: none;
   list-style: none;
   margin: 0;
   padding: 0;
 }
-
-.has-submenu:hover > .submenu {
+.has-submenu.open > .submenu {
   display: block;
 }
 
-/* Top-level links */
+/* Top-level links (keep your spacing/format) */
 .main-nav > li > a {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 14px 0;                 /* flush left, no indent */
+  padding: 14px 0;                 /* flush left, no extra indent */
   text-decoration: none;
   color: var(--text);
-  border-bottom: 1px solid transparent; /* prevents spacing jump */
+  border-bottom: 1px solid transparent; /* prevents jump on hover */
   box-sizing: border-box;
 }
 
-/* Submenu links (indented) */
+/* Add a caret to parents (“About”, “Resources”) */
+.has-submenu > a {
+  position: relative;
+}
+.has-submenu > a::after {
+  content: "›";                    /* right-pointing caret */
+  font-size: 1.1em;
+  margin-left: 8px;
+  line-height: 1;
+  transition: transform 0.2s ease;
+}
+.has-submenu.open > a::after {
+  transform: rotate(90deg);        /* caret rotates when open */
+}
+
+/* Submenu links (indented to match your style) */
 .submenu li a {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 14px 0 14px 24px !important;       /* add left indent here */
+  padding: 14px 0 14px 24px !important;  /* left indent only for submenu */
   text-decoration: none;
   color: var(--text);
   border-bottom: 1px solid #eee;
   box-sizing: border-box;
 }
 
-/* Hover styles */
+/* Hover/focus styles */
 .main-nav > li > a:hover,
-.submenu li a:hover {
+.main-nav > li > a:focus,
+.submenu li a:hover,
+.submenu li a:focus {
   background: none;
   color: var(--accent-dark);
-  border-bottom-color: #eee;       /* keeps visual consistency */
+  border-bottom-color: #eee;
+  outline: none;
 }
 
-/* icons aligned right */
+/* Icons aligned to the right inside links (keep) */
 .main-nav ul li a .right {
   margin-left: auto;
+}
+
+/* Optional: reduce motion preference (no caret rotation) */
+@media (prefers-reduced-motion: reduce) {
+  .has-submenu > a::after {
+    transition: none;
+  }
 }
 
 /* ----- Make header thinner ----- */
