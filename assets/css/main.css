@@ -2495,95 +2495,78 @@ h1, h2, h3, h4, h5, h6,
   .team-page .member-photo{ height:260px; }
 }
 
-/* ===== Sidebar submenu: independent LEFT chevron + fade/slide ===== */
+/* --- Keep submenu animation (fade/slide) --- */
+.has-submenu > .submenu{
+  list-style:none; margin:0; padding:0;
+  max-height:0; opacity:0; transform:translateY(-4px);
+  overflow:hidden;
+  transition:max-height 220ms ease, opacity 200ms ease, transform 220ms ease;
+}
+.has-submenu.open > .submenu{ max-height:1000px; opacity:1; transform:translateY(0); }
 
-/* Ensure outside elements can show */
-.main-nav { overflow: visible; }
-
-/* Parent that owns a submenu */
-.has-submenu { position: relative; }
-
-/* Independent chevron: attached to the <li>, not the link */
-.has-submenu::before {
-  content: "";
-  position: absolute;
-  left: -16px;                      /* OUTSIDE the row */
-  top: 50%;
-  width: 8px;
-  height: 8px;
-  border-right: 2px solid currentColor;
-  border-bottom: 2px solid currentColor;  /* ▸ shape */
-  transform: translateY(-50%) rotate(-45deg);
-  transition: transform 200ms ease;
-  pointer-events: none;             /* never blocks clicks */
+/* --- Top-level rows (unchanged look, but ensure full width for flex) --- */
+.main-nav > li > a{
+  display:flex; align-items:center; width:100%;
+  padding:14px 0; text-decoration:none; color:var(--text);
+  border-bottom:1px solid #eee; box-sizing:border-box;
+  gap:12px; /* gives breathing room before the right icon */
 }
 
-/* Rotate chevron when the parent is open */
-.has-submenu.open::before {
-  transform: translateY(-50%) rotate(45deg);  /* ▾ */
+/* Right icon truly flush right */
+.main-nav > li > a .right{ margin-left:auto; display:inline-flex; }
+
+/* --- Chevron: attach to the LINK (not <li>) so it doesn't slide down when submenu expands --- */
+.has-submenu > a{ position:relative; }
+.has-submenu > a::before{
+  content:""; position:absolute; left:-16px; top:50%;
+  width:8px; height:8px;
+  border-right:2px solid currentColor; border-bottom:2px solid currentColor;
+  transform:translateY(-50%) rotate(-45deg);          /* ▸ */
+  transition:transform 200ms ease;
+  pointer-events:none;                                 /* never catches clicks */
+}
+.has-submenu.open > a::before{
+  transform:translateY(-50%) rotate(45deg);            /* ▾ */
 }
 
-/* Submenu (animated, no layout jump) */
-.has-submenu > .submenu {
-  list-style: none;
-  margin: 0;
-  padding: 0;
-  max-height: 0;
-  opacity: 0;
-  transform: translateY(-4px);
-  overflow: hidden;
-  transition:
-    max-height 220ms ease,
-    opacity 200ms ease,
-    transform 220ms ease;
-}
-.has-submenu.open > .submenu {
-  max-height: 1000px;     /* large enough for contents */
-  opacity: 1;
-  transform: translateY(0);
-}
-
-/* Keep your existing row styles intact (no padding changes here) */
-.main-nav > li > a {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding: 14px 0;
-  text-decoration: none;
-  color: var(--text);
-  border-bottom: 1px solid #eee;
-  box-sizing: border-box;
-}
-
-.submenu li a {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding: 14px 0 14px 24px !important;  /* your indent for children */
-  text-decoration: none;
-  color: var(--text);
-  border-bottom: 1px solid #eee;
-  box-sizing: border-box;
-}
-
-/* Hover/focus */
+/* Hover/focus (light) */
 .main-nav > li > a:hover,
-.main-nav > li > a:focus,
-.submenu li a:hover,
-.submenu li a:focus {
-  background: none;
-  color: var(--accent-dark);
-  outline: none;
+.submenu li a:hover{ background:none; color:var(--accent-dark); }
+
+/* Reduced motion */
+@media (prefers-reduced-motion: reduce){
+  .has-submenu > .submenu, .has-submenu > a::before{ transition:none; }
 }
 
-/* Right-aligned icons stay as-is */
-.main-nav ul li a .right { margin-left: auto; display: inline-flex; }
+<script>
+(function () {
+  document.querySelectorAll('.has-submenu').forEach(li => {
+    const link = li.querySelector(':scope > a');
+    if (!link) return;
 
-/* Accessibility: respect reduced motion */
-@media (prefers-reduced-motion: reduce) {
-  .has-submenu::before,
-  .has-submenu > .submenu { transition: none; }
-}
+    function toggle(e){
+      e.preventDefault();       // don't navigate
+      e.stopPropagation();      // don't trigger sidebar-close handlers
+      li.classList.toggle('open');
+      link.setAttribute('aria-expanded', li.classList.contains('open'));
+    }
+
+    // Click / touch
+    link.addEventListener('click', toggle);
+    link.addEventListener('touchend', toggle);
+
+    // Keyboard (Enter/Space)
+    link.addEventListener('keydown', (e)=>{
+      if (e.key === 'Enter' || e.key === ' ') toggle(e);
+    });
+  });
+
+  // Allow normal navigation for submenu items
+  document.querySelectorAll('.has-submenu .submenu a').forEach(a=>{
+    a.addEventListener('click', e => e.stopPropagation());
+  });
+})();
+</script>
 
 /* ----- Make header thinner ----- */
 header.main-header {
