@@ -19,5 +19,5 @@ Caregiver isolation manifests in many ways. Some describe the constant demands o
 
 It is important to let caregivers’ experiences take center stage, especially with the growing number of older adults and consequently, the growing number of caregivers. Introducing easier access to help in caring for older adults can significantly reduce the burden that contributes to caregiver isolation. When caregivers have reliable support networks or accessible assistance, they are better able to take time for self-care, social ties, and sustaining their mental health. When caregivers are better supported, it’s not just about easing their burden, it’s about honoring their humanity. 
 
-![Caregiving.](./assets/img/posts/20251012/post1-caregiving.jpg)
+![Caregiving.](./assets/img/posts/20251012/post1-caregiving.png)
 <small>Source: Getty Images</small>
