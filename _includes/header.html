@@ -79,25 +79,31 @@
   </div>
 </header>
 
-<!-- Dropdown Toggle Script -->
 <script>
-document.addEventListener("DOMContentLoaded", function() {
-  document.querySelectorAll(".has-submenu > a").forEach(function(parentLink) {
-    parentLink.addEventListener("click", function(e) {
-      e.preventDefault();
-      parentLink.parentElement.classList.toggle("open");
-    });
-  });
-});
-</script>
+(function () {
+  // Intercept parent-link clicks BEFORE any other listeners (capture phase)
+  document.addEventListener('click', function (evt) {
+    const link = evt.target.closest('.main-header .main-nav .has-submenu > a');
+    if (!link) return;
 
-<script>
-document.addEventListener('DOMContentLoaded', function () {
-  var touch = window.matchMedia('(hover: none)').matches;
-  document.querySelectorAll('.has-submenu > a').forEach(function (trigger) {
-    trigger.addEventListener('click', function (e) {
-      if (touch) { e.preventDefault(); trigger.parentElement.classList.toggle('open'); }
-    });
-  });
-});
+    evt.preventDefault();             // never navigate (href is javascript:void(0) anyway)
+    evt.stopPropagation();            // don't bubble to any "close sidebar" handlers
+    evt.stopImmediatePropagation();   // cancel other click listeners on this target
+
+    const li = link.parentElement;
+    li.classList.toggle('open');
+    link.setAttribute('role', 'button');
+    link.setAttribute('aria-expanded', li.classList.contains('open'));
+  }, true); //  <-- capture = true, runs before other handlers
+
+  // Submenu items should navigate normally, but don't bubble upward
+  document.querySelectorAll('.main-header .main-nav .has-submenu .submenu a')
+    .forEach(a => a.addEventListener('click', e => e.stopPropagation()));
+
+  // Keyboard accessibility for the parent toggles
+  document.querySelectorAll('.main-header .main-nav .has-submenu > a')
+    .forEach(a => a.addEventListener('keydown', (e) => {
+      if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); a.click(); }
+    }));
+})();
 </script>
