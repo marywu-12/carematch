@@ -2577,72 +2577,90 @@ header .logo {
   margin: 0 auto;                          /* perfectly center within header */
 }
 
-/* ===== Posts formatting (final) ===== */
+/* ===== Post header tweaks ===== */
 
-/* Title size */
+/* 1) Smaller title */
 .page .page-title {
-  /* REPLACES your previous clamp */
   font-size: clamp(1.9rem, 4.6vw, 2.9rem);
   line-height: 1.15;
   margin-bottom: .5rem;
 }
 
-/* Row under the title (keep) */
-.post-meta-row {
-  display: flex;
-  flex-wrap: wrap;
-  align-items: center;
-  gap: .5rem 1rem;
-  margin: .5rem 0 1.25rem;
+/* Row with date/read-time + tags + share */
+.post-topmeta{
+  display:flex;
+  align-items:center;
+  gap:.5rem 1rem;
+  flex-wrap:wrap;           /* wraps nicely on small screens */
+  margin:.25rem 0 .75rem;
 }
 
-/* Author style (replaces the old .post-author rule) */
-.post-meta-row .post-author {
-  font-size: .95rem;
-  font-style: italic;
-  color: #666;
-  letter-spacing: .01em;
+/* 3) Tags inline, smaller + hover color */
+.post-tags-inline{
+  font-size:.82rem;
+  color:#666;
+}
+.post-tags-inline strong{
+  font-weight:600;
+  margin-right:.35rem;
+  color:#555;
+}
+.post-tags-inline a{
+  font-size:.82rem;
+  color:#51327f;                         /* your purple */
+  text-decoration:none;
+}
+.post-tags-inline a:hover{
+  color:var(--accent-dark, #3a1f6b);     /* site hover color */
+  text-decoration:underline;
 }
 
-/* Tags list (keep the structure) */
-.post-meta-row .post-tags-under {
-  list-style: none;
-  display: flex;
-  flex-wrap: wrap;
-  gap: .4rem .6rem;   /* smaller gaps */
-  margin: 0;
-  padding: 0;
+/* 2) Author: subtle/stylish below the topmeta row */
+.post-author{
+  font-size:.95rem;
+  font-style:italic;
+  color:#666;
+  margin:.25rem 0 1rem;
 }
 
-/* Tag chips (replaces your old sizes/colors) */
-.post-meta-row .post-tags-under li a {
-  display: inline-block;
-  padding: .18rem .5rem;
-  border: 1px solid #e6def4;   /* lighter outline */
-  border-radius: 999px;
-  font-size: .78rem;           /* smaller text */
-  text-decoration: none;
-  color: #51327f;
+/* 4) Share: show only a single "share" icon; reveal other options on hover */
+/* Default: show only the single share icon */
+.post-share-under::before{
+  content:"\f064";                /* Font Awesome 'share' (adjust if needed) */
+  font-family:"FontAwesome";
+  font-size:1.05rem;
+  line-height:1;
+  color:#51327f;
+  display:inline-block;
 }
 
-/* Share area stays on the right */
-.post-meta-row .post-share-under { margin-left: auto; }
+/* Hide all real share links by default */
+.post-share-under a{
+  display:inline-flex;
+  align-items:center;
+  opacity:0;
+  width:0;
+  overflow:hidden;
+  margin-left:0;
+  pointer-events:none;            /* don't catch clicks while hidden */
+  transform:translateY(-4px);     /* subtle slide like sidebar */
+  transition:
+    opacity .18s ease,
+    width .18s ease,
+    margin .18s ease,
+    transform .18s ease;
+}
 
-/* Show only the first share icon; reveal the rest on hover */
-.post-meta-row .post-share-under a {
-  display: inline-flex;
-  align-items: center;
-  transition: opacity .15s ease, width .15s ease, margin .15s ease;
+/* When open (toggled by JS): remove fake icon, reveal links with fade/slide */
+.post-share-under.open::before{ content:""; }
+.post-share-under.open a{
+  opacity:1;
+  width:auto;
+  overflow:visible;
+  margin-left:.4rem;
+  pointer-events:auto;
+  transform:translateY(0);
 }
-.post-meta-row .post-share-under a:not(:first-child) {
-  opacity: 0;
-  width: 0;
-  overflow: hidden;
-  margin-left: 0;
-}
-.post-meta-row .post-share-under:hover a:not(:first-child) {
-  opacity: 1;
-  width: auto;
-  overflow: visible;
-  margin-left: .4rem;
-}
+
+/* Cursor hint */
+.post-share-under{ cursor:pointer; }
