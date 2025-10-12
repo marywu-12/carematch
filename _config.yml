@@ -24,7 +24,7 @@ highlight_theme: syntax-base16.monokai.dark # select a dark theme for the code h
 
 # Author settings
 author: CareMatch # add your name
-author-pic: Myself_Neon_grey.jpg
+author-pic: logo.png
 about-author: CareMatch helps families find trustworthy, well-matched caregivers.
 
 # Contact links
