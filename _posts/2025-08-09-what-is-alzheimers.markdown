@@ -9,5 +9,5 @@ img: posts/homepage/alzheimers.jpg
 tags: []
 author: 
 pin_on_home: true
-featured_order: 1
+featured_order: 2
 ---
