@@ -60,6 +60,37 @@ layout: default
         {% include comments.html %}
       </div>
     </div> <!-- End Wrapper -->
+
+    <!-- Share: click-to-open script (post page only) -->
+    <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const share = document.querySelector('.post-topmeta .post-share-under');
+      if (!share) return;
+    
+      // Toggle on click (allow real share links to work)
+      share.addEventListener('click', (e) => {
+        if (e.target.closest('a')) return;
+        e.preventDefault();
+        e.stopPropagation();
+        share.classList.toggle('open');
+        share.setAttribute('aria-expanded', share.classList.contains('open'));
+        share.setAttribute('role', 'button');
+        share.setAttribute('tabindex', '0');
+      });
+    
+      // Keyboard support
+      share.addEventListener('keydown', (e) => {
+        if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); share.click(); }
+      });
+    
+      // Click outside to close
+      document.addEventListener('click', () => {
+        share.classList.remove('open');
+        share.setAttribute('aria-expanded', 'false');
+      });
+    });
+    </script>
+    
   </article>
   {% include search.html %}
   {% include footer.html %}
