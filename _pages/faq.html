@@ -1,10 +1,23 @@
 ---
-layout: page
+layout: menu-page
 title: FAQ
 permalink: /faq.html
+infinite: yes
 ---
-<h1>FAQ</h1>
-<p>Placeholder page for FAQs.</p>
-<ul>
-  <li><strong>Q:</strong> Example question?<br><strong>A:</strong> Example answer.</li>
-</ul>
+{% include calculate_relative_base.html %}
+{% include escape-404.html %}
+
+<div class="small-wrapper">
+  <article class="about-container">
+    <section class="about-header">
+      <h1>FAQ</h1>
+      <p class="subtitle">Placeholder</p>
+    </section>
+    <section class="about-body">
+      <p>Add your frequently asked questions here.</p>
+      <ul>
+        <li><strong>Q:</strong> Example question?<br><strong>A:</strong> Example answer.</li>
+      </ul>
+    </section>
+  </article>
+</div>
