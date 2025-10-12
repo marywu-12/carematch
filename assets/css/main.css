@@ -2577,14 +2577,17 @@ header .logo {
   margin: 0 auto;                          /* perfectly center within header */
 }
 
-# Posts formatting 
-/* Smaller post title */
+/* ===== Posts formatting (final) ===== */
+
+/* Title size */
 .page .page-title {
-  font-size: clamp(2.2rem, 5.5vw, 3.2rem);
-  line-height: 1.12;
+  /* REPLACES your previous clamp */
+  font-size: clamp(1.9rem, 4.6vw, 2.9rem);
+  line-height: 1.15;
+  margin-bottom: .5rem;
 }
 
-/* New meta row under title */
+/* Row under the title (keep) */
 .post-meta-row {
   display: flex;
   flex-wrap: wrap;
@@ -2593,29 +2596,53 @@ header .logo {
   margin: .5rem 0 1.25rem;
 }
 
-.post-author {
-  color: #555;
-  font-weight: 500;
+/* Author style (replaces the old .post-author rule) */
+.post-meta-row .post-author {
+  font-size: .95rem;
+  font-style: italic;
+  color: #666;
+  letter-spacing: .01em;
 }
 
-/* Inline tags under title */
-.post-tags-under {
+/* Tags list (keep the structure) */
+.post-meta-row .post-tags-under {
   list-style: none;
   display: flex;
   flex-wrap: wrap;
-  gap: .5rem;
+  gap: .4rem .6rem;   /* smaller gaps */
   margin: 0;
   padding: 0;
 }
-.post-tags-under li a {
+
+/* Tag chips (replaces your old sizes/colors) */
+.post-meta-row .post-tags-under li a {
   display: inline-block;
-  padding: .25rem .6rem;
-  border: 1px solid #ccb9e6;
+  padding: .18rem .5rem;
+  border: 1px solid #e6def4;   /* lighter outline */
   border-radius: 999px;
-  font-size: .85rem;
+  font-size: .78rem;           /* smaller text */
   text-decoration: none;
-  color: #4b2e83;
+  color: #51327f;
 }
 
-/* Share icons aligned to the end of the row */
-.post-share-under { margin-left: auto; }
+/* Share area stays on the right */
+.post-meta-row .post-share-under { margin-left: auto; }
+
+/* Show only the first share icon; reveal the rest on hover */
+.post-meta-row .post-share-under a {
+  display: inline-flex;
+  align-items: center;
+  transition: opacity .15s ease, width .15s ease, margin .15s ease;
+}
+.post-meta-row .post-share-under a:not(:first-child) {
+  opacity: 0;
+  width: 0;
+  overflow: hidden;
+  margin-left: 0;
+}
+.post-meta-row .post-share-under:hover a:not(:first-child) {
+  opacity: 1;
+  width: auto;
+  overflow: visible;
+  margin-left: .4rem;
+}
