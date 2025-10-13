@@ -2579,43 +2579,54 @@ header .logo {
 
 /* ===== Post header tweaks ===== */
 
-/* 1) Smaller title */
+/* Smaller title */
 .page .page-title {
   font-size: clamp(1.9rem, 4.6vw, 2.9rem);
   line-height: 1.15;
   margin-bottom: .5rem;
 }
 
-/* Row with date/read-time + tags + share */
+/* Row: date/read-time + tags + share */
 .post-topmeta{
   display:flex;
   align-items:center;
   gap:.5rem 1rem;
-  flex-wrap:wrap;           /* wraps nicely on small screens */
+  flex-wrap:wrap;
   margin:.25rem 0 .75rem;
 }
 
-/* 3) Tags inline, smaller + hover color */
-.post-tags-inline{
+/* Tags label (not bold) */
+.post-tags-label{
   font-size:.82rem;
   color:#666;
-}
-.post-tags-inline strong{
-  font-weight:600;
-  margin-right:.35rem;
-  color:#555;
-}
-.post-tags-inline a{
-  font-size:.82rem;
-  color:#51327f;                         /* your purple */
-  text-decoration:none;
-}
-.post-tags-inline a:hover{
-  color:var(--accent-dark, #3a1f6b);     /* site hover color */
-  text-decoration:underline;
+  margin-right:.25rem;
 }
 
-/* 2) Author: subtle/stylish below the topmeta row */
+/* Bubble tags (with hover color) */
+.post-tags-chips{
+  list-style:none;
+  display:flex;
+  flex-wrap:wrap;
+  gap:.4rem .6rem;
+  margin:0;
+  padding:0;
+}
+.post-tags-chips li a{
+  display:inline-block;
+  padding:.18rem .5rem;
+  border:1px solid #e6def4;
+  border-radius:999px;
+  font-size:.78rem;
+  text-decoration:none;
+  color:#51327f;
+  background:transparent;
+}
+.post-tags-chips li a:hover{
+  color:var(--accent-dark, #3a1f6b);
+  border-color:currentColor;
+}
+
+/* Author line (subtle) */
 .post-author{
   font-size:.95rem;
   font-style:italic;
@@ -2623,44 +2634,50 @@ header .logo {
   margin:.25rem 0 1rem;
 }
 
-/* 4) Share: show only a single "share" icon; reveal other options on hover */
-/* Default: show only the single share icon */
-.post-share-under::before{
-  content:"\f064";                /* Font Awesome 'share' (adjust if needed) */
-  font-family:"FontAwesome";
-  font-size:1.05rem;
-  line-height:1;
-  color:#51327f;
-  display:inline-block;
+/* Share: align right; tray pops under the existing icon */
+.post-share-inline{
+  margin-left:auto;
+  position:relative;
+  display:flex;
+  align-items:center;
 }
 
-/* Hide all real share links by default */
-.post-share-under a{
+/* Only show the first share link (your built-in icon) inline */
+.post-share-inline > a{ display:none; }
+.post-share-inline > a:first-child{ display:inline-flex; }
+
+/* Hidden tray with the rest of the share options (appears on click) */
+.post-share-inline .share-tray{
+  position:absolute;
+  top:calc(100% + 8px);
+  left:0;
+  display:flex;
+  gap:.4rem;
+  background:#fff;
+  border:1px solid #eee;
+  border-radius:.5rem;
+  padding:.4rem .5rem;
+  box-shadow:0 6px 18px rgba(0,0,0,.08);
+  opacity:0;
+  transform:translateY(-4px);
+  pointer-events:none;
+  transition:opacity .18s ease, transform .18s ease;
+  z-index:5;
+}
+.post-share-inline.open .share-tray{
+  opacity:1;
+  transform:translateY(0);
+  pointer-events:auto;
+}
+
+/* Links in the tray */
+.post-share-inline .share-tray a{
   display:inline-flex;
   align-items:center;
-  opacity:0;
-  width:0;
-  overflow:hidden;
-  margin-left:0;
-  pointer-events:none;            /* don't catch clicks while hidden */
-  transform:translateY(-4px);     /* subtle slide like sidebar */
-  transition:
-    opacity .18s ease,
-    width .18s ease,
-    margin .18s ease,
-    transform .18s ease;
+  font-size:1rem;
+  color:#51327f;
+  text-decoration:none;
 }
-
-/* When open (toggled by JS): remove fake icon, reveal links with fade/slide */
-.post-share-under.open::before{ content:""; }
-.post-share-under.open a{
-  opacity:1;
-  width:auto;
-  overflow:visible;
-  margin-left:.4rem;
-  pointer-events:auto;
-  transform:translateY(0);
+.post-share-inline .share-tray a:hover{
+  color:var(--accent-dark, #3a1f6b);
 }
-
-/* Cursor hint */
-.post-share-under{ cursor:pointer; }
