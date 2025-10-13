@@ -2586,7 +2586,7 @@ header .logo {
   margin-bottom: .5rem;
 }
 
-/* Row 1: date/read-time + share icon just after it */
+/* Row 1: date/read-time */
 .post-topmeta{
   display:flex;
   align-items:center;
@@ -2595,58 +2595,11 @@ header .logo {
   margin:.25rem 0 .5rem;
 }
 
-/* Share container (same row) */
-.post-topmeta .post-share-inline{
-  margin-left:.75rem;
-  display:flex;
-  align-items:center;
-  flex-wrap:nowrap;                 /* keep everything on one line */
-  position:relative;
-}
-
-/* The share include sometimes inserts a <br> — hide it */
-.post-topmeta .post-share-inline > br{ display:none !important; }
-
-/* Default: show ONLY the first link (share icon) */
-.post-topmeta .post-share-inline > a{
-  display:inline-flex;
-  align-items:center;
-}
-.post-topmeta .post-share-inline > a:not(:first-child){
-  opacity:0;
-  width:0;
-  margin-left:0;
-  overflow:hidden;
-  pointer-events:none;
-  transform:translateY(-4px);
-  transition:
-    opacity .18s ease,
-    width .18s ease,
-    margin .18s ease,
-    transform .18s ease;
-}
-
-/* Hover or keyboard focus: reveal the rest IN LINE */
-.post-topmeta .post-share-inline:hover > a:not(:first-child),
-.post-topmeta .post-share-inline:focus-within > a:not(:first-child){
-  opacity:1;
-  width:auto;
-  margin-left:.5rem;
-  overflow:visible;
-  pointer-events:auto;
-  transform:translateY(0);
-}
-
-/* Optional icon color hover */
-.post-topmeta .post-share-inline > a{ color:#51327f; text-decoration:none; }
-.post-topmeta .post-share-inline > a:hover{ color:var(--accent-dark, #3a1f6b); }
-
 /* Row 2: tags on their own line; label + bubbles start together */
 .post-tags-row{
   display:flex; align-items:center; gap:.5rem .75rem; flex-wrap:wrap;
   margin:0 0 1rem;
 }
-.post-tags-label{ font-size:.82rem; color:#666; flex:0 0 auto; }
 
 /* Bubble chips + filled hover */
 .post-tags-chips{
