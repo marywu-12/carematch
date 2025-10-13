@@ -32,17 +32,16 @@ layout: default
         <div class="header-page">
           <h1 class="page-title">{{ page.title }}</h1>
 
-          {#-- Original meta (date, read time) --#}
           {% include post_meta.html type="post-page-meta" %}
 
-          {#-- Row 1: share icon inline (options hidden until click) --#}
+          <!-- Row 1: date/read-time is output above; this adds the share icon inline -->
           <div class="post-topmeta">
             <div class="post-share-inline">
               {% include share-icons.html %}
             </div>
           </div>
 
-          {#-- Row 2: Tags on their own line (bubble chips) --#}
+          <!-- Row 2: tags (bubble chips) -->
           {% if page.tags %}
           <div class="post-tags-row">
             <span class="post-tags-label">Tags:</span>
@@ -59,7 +58,8 @@ layout: default
           {% endif %}
         </div>
 
-        {%- comment -%} Optional: hide left sidebar on post pages
+        {%- comment -%}
+        Optionally hide the left sidebar on post pages:
         {% include sidebar.html context="post" class="side" id="sidebar" %}
         {%- endcomment -%}
 
@@ -76,46 +76,6 @@ layout: default
         {% include comments.html %}
       </div>
     </div> <!-- End Wrapper -->
-
-    <!-- Share: click-to-open (uses the FIRST link from share-icons.html as trigger) -->
-    <script>
-    document.addEventListener('DOMContentLoaded', () => {
-      const cont = document.querySelector('.post-topmeta .post-share-inline');
-      if (!cont) return;
-
-      const links = Array.from(cont.querySelectorAll(':scope > a'));
-      if (!links.length) return;
-
-      // Use the first rendered share link (the share icon) as the trigger
-      const trigger = links[0];
-      trigger.classList.add('is-share-trigger');
-
-      // Move the remaining links into an inline tray
-      const tray = document.createElement('div');
-      tray.className = 'share-tray';
-      links.slice(1).forEach(a => tray.appendChild(a.cloneNode(true)));
-      cont.appendChild(tray);
-
-      // Toggle tray
-      trigger.addEventListener('click', (e) => {
-        e.preventDefault(); e.stopPropagation();
-        cont.classList.toggle('open');
-        trigger.setAttribute('aria-expanded', cont.classList.contains('open'));
-        trigger.setAttribute('role', 'button');
-      });
-
-      // Keyboard support
-      trigger.addEventListener('keydown', (e) => {
-        if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); trigger.click(); }
-      });
-
-      // Click outside closes
-      document.addEventListener('click', () => {
-        cont.classList.remove('open');
-        trigger.setAttribute('aria-expanded', 'false');
-      });
-    });
-    </script>
   </article>
 
   {% include search.html %}
