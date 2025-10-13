@@ -2579,81 +2579,56 @@ header .logo {
 
 /* ===== Post header tweaks ===== */
 
-/* Title size */
+/* Title smaller (tweak as you like) */
 .page .page-title {
   font-size: clamp(1.6rem, 4vw, 2.4rem);
   line-height: 1.15;
   margin-bottom: .5rem;
 }
 
-/* Row 1: date/read-time + share icon right after it */
+/* Row 1: keep share icon inline with the date/read-time block */
 .post-topmeta{
   display:flex;
   align-items:center;
   gap:.5rem 1rem;
-  flex-wrap:wrap;              /* keeps things neat on small screens */
+  flex-wrap:wrap;
   margin:.25rem 0 .5rem;
 }
 
-/* Share container lives in the same row, right after read-time */
+/* Only the share icon is visible by default; options are hidden */
 .post-topmeta .post-share-inline{
-  margin-left:.75rem;
-  position:relative;
-  display:flex;
-  align-items:center;
+  margin-left:.75rem;                 /* sits just to the right of read-time */
+  display:flex; align-items:center; position:relative;
 }
-
-/* Show only the real share icon inline; hide all others by default */
 .post-topmeta .post-share-inline > a{ display:none; }
-.post-topmeta .post-share-inline > a.is-share-trigger{
-  display:inline-flex;
-}
+.post-topmeta .post-share-inline > a.is-share-trigger{ display:inline-flex; }
 
-/* Tray: INLINE (same row), hidden by default */
+/* Inline tray (same row), appears on click */
 .post-topmeta .post-share-inline .share-tray{
-  display:flex;                /* horizontal row */
-  gap:.5rem;
-  margin-left:.5rem;
-  opacity:0;
-  transform:translateY(-4px);  /* subtle fade/slide like sidebar */
-  pointer-events:none;
-  max-width:0;                 /* hide width so nothing shows by default */
-  overflow:hidden;
-  transition:
-    opacity .18s ease,
-    transform .18s ease,
-    max-width .18s ease,
-    margin .18s ease;
+  display:flex; gap:.5rem; margin-left:.5rem;
+  opacity:0; transform:translateY(-4px); pointer-events:none;
+  max-width:0; overflow:hidden;
+  transition: opacity .18s ease, transform .18s ease, max-width .18s ease, margin .18s ease;
 }
-
-/* When open, reveal the options inline on the same row */
 .post-topmeta .post-share-inline.open .share-tray{
-  opacity:1;
-  transform:translateY(0);
-  pointer-events:auto;
-  max-width:600px;             /* enough to show all icons in one line */
+  opacity:1; transform:translateY(0); pointer-events:auto; max-width:600px;
 }
-
-/* Style for the icons inside the tray */
 .post-topmeta .post-share-inline .share-tray a{
-  display:inline-flex;
-  align-items:center;
-  font-size:1rem;
-  color:#51327f;
-  text-decoration:none;
+  display:inline-flex; align-items:center; font-size:1rem;
+  color:#51327f; text-decoration:none;
 }
 .post-topmeta .post-share-inline .share-tray a:hover{
   color:var(--accent-dark, #3a1f6b);
 }
 
-
-/* Row 2: tags on their own line */
+/* Row 2: tags on their own line; label + bubbles start together */
 .post-tags-row{
   display:flex; align-items:center; gap:.5rem .75rem; flex-wrap:wrap;
   margin:0 0 1rem;
 }
 .post-tags-label{ font-size:.82rem; color:#666; flex:0 0 auto; }
 
+/* Bubble chips + filled hover */
 .post-tags-chips{
   flex:1 1 auto; list-style:none; display:flex; flex-wrap:wrap;
   gap:.4rem .6rem; margin:0; padding:0;
@@ -2661,17 +2636,15 @@ header .logo {
 .post-tags-chips li a{
   display:inline-block; padding:.18rem .5rem;
   border:1px solid #e6def4; border-radius:999px;
-  font-size:.78rem; text-decoration:none; color:#51327f; background:transparent;
-  transition:background-color .15s ease, border-color .15s ease, color .15s ease;
+  font-size:.78rem; color:#51327f; text-decoration:none; background:transparent;
+  transition: background-color .15s ease, border-color .15s ease, color .15s ease;
 }
 .post-tags-chips li a:hover{
   background:#f2ecff; border-color:#d8c9f5; color:var(--accent-dark, #3a1f6b);
 }
 
-/* Author line */
+/* Author line (optional styling) */
 .post-author{
-  font-size:.95rem;
-  font-style:italic;
-  color:#666;
+  font-size:.95rem; font-style:italic; color:#666;
   margin:.25rem 0 1rem;
 }
