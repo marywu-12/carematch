@@ -2579,30 +2579,82 @@ header .logo {
 
 /* ===== Post header tweaks ===== */
 
-/* Smaller title */
+/* Title size (unchanged from your latest) */
 .page .page-title {
   font-size: clamp(1.9rem, 4.6vw, 2.9rem);
   line-height: 1.15;
   margin-bottom: .5rem;
 }
 
-/* Row: date/read-time + tags + share */
+/* Row 1: date/read-time + share icon (right) */
 .post-topmeta{
   display:flex;
   align-items:center;
   gap:.5rem 1rem;
   flex-wrap:wrap;
-  margin:.25rem 0 .75rem;
+  margin:.25rem 0 .5rem;
+}
+.post-topmeta .post-share-inline{
+  margin-left:auto;
+  position:relative;
+  display:flex;
+  align-items:center;
 }
 
-/* Tags label (not bold) */
+/* Hide ALL share links by default; show only the first (your existing icon) */
+.post-topmeta .post-share-inline a{ display:none; }
+.post-topmeta .post-share-inline a:first-of-type{ display:inline-flex; }
+
+/* Tray that pops under the share icon on click (fade/slide) */
+.post-topmeta .post-share-inline .share-tray{
+  position:absolute;
+  top:calc(100% + 8px);
+  left:0;
+  display:flex;
+  gap:.4rem;
+  background:#fff;
+  border:1px solid #eee;
+  border-radius:.5rem;
+  padding:.4rem .5rem;
+  box-shadow:0 6px 18px rgba(0,0,0,.08);
+  opacity:0;
+  transform:translateY(-4px);
+  pointer-events:none;
+  transition:opacity .18s ease, transform .18s ease;
+  z-index:5;
+}
+.post-topmeta .post-share-inline.open .share-tray{
+  opacity:1;
+  transform:translateY(0);
+  pointer-events:auto;
+}
+.post-topmeta .post-share-inline .share-tray a{
+  display:inline-flex;
+  align-items:center;
+  font-size:1rem;
+  color:#51327f;
+  text-decoration:none;
+}
+.post-topmeta .post-share-inline .share-tray a:hover{
+  color:var(--accent-dark, #3a1f6b);
+}
+
+/* Row 2: tags on their own line */
+.post-tags-row{
+  display:flex;
+  align-items:center;
+  gap:.5rem 1rem;
+  flex-wrap:wrap;
+  margin:0 0 1rem;
+}
+
+/* "Tags:" label (not bold) */
 .post-tags-label{
   font-size:.82rem;
   color:#666;
-  margin-right:.25rem;
 }
 
-/* Bubble tags (with hover color) */
+/* Bubble tags with hover FILL */
 .post-tags-chips{
   list-style:none;
   display:flex;
@@ -2620,64 +2672,18 @@ header .logo {
   text-decoration:none;
   color:#51327f;
   background:transparent;
+  transition:background-color .15s ease, border-color .15s ease, color .15s ease;
 }
 .post-tags-chips li a:hover{
+  background:#f2ecff;                 /* soft purple fill on hover */
+  border-color:#d8c9f5;
   color:var(--accent-dark, #3a1f6b);
-  border-color:currentColor;
 }
 
-/* Author line (subtle) */
+/* Author line */
 .post-author{
   font-size:.95rem;
   font-style:italic;
   color:#666;
   margin:.25rem 0 1rem;
-}
-
-/* Share: align right; tray pops under the existing icon */
-.post-share-inline{
-  margin-left:auto;
-  position:relative;
-  display:flex;
-  align-items:center;
-}
-
-/* Only show the first share link (your built-in icon) inline */
-.post-share-inline > a{ display:none; }
-.post-share-inline > a:first-child{ display:inline-flex; }
-
-/* Hidden tray with the rest of the share options (appears on click) */
-.post-share-inline .share-tray{
-  position:absolute;
-  top:calc(100% + 8px);
-  left:0;
-  display:flex;
-  gap:.4rem;
-  background:#fff;
-  border:1px solid #eee;
-  border-radius:.5rem;
-  padding:.4rem .5rem;
-  box-shadow:0 6px 18px rgba(0,0,0,.08);
-  opacity:0;
-  transform:translateY(-4px);
-  pointer-events:none;
-  transition:opacity .18s ease, transform .18s ease;
-  z-index:5;
-}
-.post-share-inline.open .share-tray{
-  opacity:1;
-  transform:translateY(0);
-  pointer-events:auto;
-}
-
-/* Links in the tray */
-.post-share-inline .share-tray a{
-  display:inline-flex;
-  align-items:center;
-  font-size:1rem;
-  color:#51327f;
-  text-decoration:none;
-}
-.post-share-inline .share-tray a:hover{
-  color:var(--accent-dark, #3a1f6b);
 }
