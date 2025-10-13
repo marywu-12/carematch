@@ -83,7 +83,7 @@ layout: default
       const links = Array.from(cont.querySelectorAll(':scope > a'));
       if (!links.length) return;
     
-      // Choose the actual 'share' icon (not Twitter) as trigger.
+      // Use the real share icon (not Twitter) as trigger
       let trigger = links.find(a => {
         const i = a.querySelector('i');
         if (!i) return false;
@@ -91,20 +91,21 @@ layout: default
                i.classList.contains('fa-share-alt') ||
                i.classList.contains('fa-share-from-square') ||
                i.classList.contains('fa-share-square');
-      }) || links[0]; // fallback if include uses a variant
+      }) || links[0];  // fallback
     
       trigger.classList.add('is-share-trigger');
     
-      // Put the rest of the links into a horizontal tray
+      // Build the inline tray with the remaining links
       const rest = links.filter(a => a !== trigger);
       const tray = document.createElement('div');
       tray.className = 'share-tray';
       rest.forEach(a => tray.appendChild(a.cloneNode(true)));
       cont.appendChild(tray);
     
-      // Toggle tray on click of the share icon
+      // Toggle on click
       trigger.addEventListener('click', (e) => {
-        e.preventDefault(); e.stopPropagation();
+        e.preventDefault();
+        e.stopPropagation();
         cont.classList.toggle('open');
         trigger.setAttribute('aria-expanded', cont.classList.contains('open'));
         trigger.setAttribute('role', 'button');
@@ -115,13 +116,14 @@ layout: default
         if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); trigger.click(); }
       });
     
-      // Close when clicking outside
+      // Click outside closes
       document.addEventListener('click', () => {
         cont.classList.remove('open');
         trigger.setAttribute('aria-expanded', 'false');
       });
     });
     </script>
+
 
   </article>
 
