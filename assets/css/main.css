@@ -2588,33 +2588,59 @@ header .logo {
 
 /* Row 1: date/read-time + share icon right after it */
 .post-topmeta{
-  display:flex; align-items:center; gap:.5rem 1rem; flex-wrap:wrap;
+  display:flex;
+  align-items:center;
+  gap:.5rem 1rem;
+  flex-wrap:wrap;              /* keeps things neat on small screens */
   margin:.25rem 0 .5rem;
 }
+
+/* Share container lives in the same row, right after read-time */
 .post-topmeta .post-share-inline{
-  margin-left:.75rem;                 /* sits right of the read-time */
-  position:relative; display:flex; align-items:center;
+  margin-left:.75rem;
+  position:relative;
+  display:flex;
+  align-items:center;
 }
 
-/* Show only the real share icon inline; hide the rest */
+/* Show only the real share icon inline; hide all others by default */
 .post-topmeta .post-share-inline > a{ display:none; }
-.post-topmeta .post-share-inline > a.is-share-trigger{ display:inline-flex; }
+.post-topmeta .post-share-inline > a.is-share-trigger{
+  display:inline-flex;
+}
 
-/* Tray: horizontal row, appears on click under the icon */
+/* Tray: INLINE (same row), hidden by default */
 .post-topmeta .post-share-inline .share-tray{
-  position:absolute; top:calc(100% + 8px); left:0;
-  display:flex; flex-wrap:nowrap; gap:.5rem;   /* HORIZONTAL line */
-  background:#fff; border:1px solid #eee; border-radius:.5rem;
-  padding:.45rem .55rem; box-shadow:0 6px 18px rgba(0,0,0,.08);
-  opacity:0; transform:translateY(-4px); pointer-events:none;
-  transition:opacity .18s ease, transform .18s ease; z-index:5;
+  display:flex;                /* horizontal row */
+  gap:.5rem;
+  margin-left:.5rem;
+  opacity:0;
+  transform:translateY(-4px);  /* subtle fade/slide like sidebar */
+  pointer-events:none;
+  max-width:0;                 /* hide width so nothing shows by default */
+  overflow:hidden;
+  transition:
+    opacity .18s ease,
+    transform .18s ease,
+    max-width .18s ease,
+    margin .18s ease;
 }
+
+/* When open, reveal the options inline on the same row */
 .post-topmeta .post-share-inline.open .share-tray{
-  opacity:1; transform:translateY(0); pointer-events:auto;
+  opacity:1;
+  transform:translateY(0);
+  pointer-events:auto;
+  max-width:600px;             /* enough to show all icons in one line */
 }
+
+/* Style for the icons inside the tray */
 .post-topmeta .post-share-inline .share-tray a{
-  display:inline-flex; align-items:center; font-size:1rem;
-  color:#51327f; text-decoration:none;
+  display:inline-flex;
+  align-items:center;
+  font-size:1rem;
+  color:#51327f;
+  text-decoration:none;
 }
 .post-topmeta .post-share-inline .share-tray a:hover{
   color:var(--accent-dark, #3a1f6b);
