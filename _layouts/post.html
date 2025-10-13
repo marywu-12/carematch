@@ -31,34 +31,37 @@ layout: default
 
         <div class="header-page">
           <h1 class="page-title">{{ page.title }}</h1>
-        
-          <!-- Row 1: date/read-time + share icon (right next to it) -->
+
+          {#-- Original meta (date, read time) --#}
+          {% include post_meta.html type="post-page-meta" %}
+
+          {#-- Row 1: share icon inline (options hidden until click) --#}
           <div class="post-topmeta">
-            {% include post_meta.html type="post-page-meta" %}
             <div class="post-share-inline">
               {% include share-icons.html %}
             </div>
           </div>
-        
-          <!-- Row 2: tags (chips) -->
+
+          {#-- Row 2: Tags on their own line (bubble chips) --#}
           {% if page.tags %}
           <div class="post-tags-row">
             <span class="post-tags-label">Tags:</span>
             <ul class="post-tags-chips">
               {% for tag in page.tags %}
-                <li><a href="{{ relativebase }}tags/#{{ tag | slugify }}">{{ tag }}</a></li>
+                <li><a href="{{ relativebase }}tags.html#{{ tag | slugify }}">{{ tag }}</a></li>
               {% endfor %}
             </ul>
           </div>
           {% endif %}
-        
+
           {% if page.author %}
             <div class="post-author">By {{ page.author }}</div>
           {% endif %}
         </div>
 
-        {%- comment -%} Left rail hidden on posts {%- endcomment -%}
-        {%- comment -%} {% include sidebar.html context="post" class="side" id="sidebar" %} {%- endcomment -%}
+        {%- comment -%} Optional: hide left sidebar on post pages
+        {% include sidebar.html context="post" class="side" id="sidebar" %}
+        {%- endcomment -%}
 
         {% if page.toc %}{% include sidebar-toc.html %}{% endif %}
         {% include github-button.html %}
@@ -74,48 +77,38 @@ layout: default
       </div>
     </div> <!-- End Wrapper -->
 
-    <!-- Share: click-to-open tray under existing icon -->
+    <!-- Share: click-to-open (uses the FIRST link from share-icons.html as trigger) -->
     <script>
     document.addEventListener('DOMContentLoaded', () => {
       const cont = document.querySelector('.post-topmeta .post-share-inline');
       if (!cont) return;
-    
+
       const links = Array.from(cont.querySelectorAll(':scope > a'));
       if (!links.length) return;
-    
-      // Use the real share icon (not Twitter) as trigger
-      let trigger = links.find(a => {
-        const i = a.querySelector('i');
-        if (!i) return false;
-        return i.classList.contains('fa-share') ||
-               i.classList.contains('fa-share-alt') ||
-               i.classList.contains('fa-share-from-square') ||
-               i.classList.contains('fa-share-square');
-      }) || links[0];  // fallback
-    
+
+      // Use the first rendered share link (the share icon) as the trigger
+      const trigger = links[0];
       trigger.classList.add('is-share-trigger');
-    
-      // Build the inline tray with the remaining links
-      const rest = links.filter(a => a !== trigger);
+
+      // Move the remaining links into an inline tray
       const tray = document.createElement('div');
       tray.className = 'share-tray';
-      rest.forEach(a => tray.appendChild(a.cloneNode(true)));
+      links.slice(1).forEach(a => tray.appendChild(a.cloneNode(true)));
       cont.appendChild(tray);
-    
-      // Toggle on click
+
+      // Toggle tray
       trigger.addEventListener('click', (e) => {
-        e.preventDefault();
-        e.stopPropagation();
+        e.preventDefault(); e.stopPropagation();
         cont.classList.toggle('open');
         trigger.setAttribute('aria-expanded', cont.classList.contains('open'));
         trigger.setAttribute('role', 'button');
       });
-    
+
       // Keyboard support
       trigger.addEventListener('keydown', (e) => {
         if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); trigger.click(); }
       });
-    
+
       // Click outside closes
       document.addEventListener('click', () => {
         cont.classList.remove('open');
@@ -123,11 +116,8 @@ layout: default
       });
     });
     </script>
-
-
   </article>
 
   {% include search.html %}
   {% include footer.html %}
 </div>
-
