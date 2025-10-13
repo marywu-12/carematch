@@ -2530,8 +2530,32 @@ h1, h2, h3, h4, h5, h6,
 }
 
 /* Hover/focus */
-.main-header .main-nav > ul > li > a:hover,
-.main-header .main-nav .submenu li a:hover{ background:none; color:var(--accent-dark); }
+/* Hover color only on devices that can really hover (prevents sticky hover on touch) */
+@media (hover: hover) and (pointer: fine) {
+  .main-header .main-nav > ul > li > a:hover,
+  .main-header .main-nav .submenu li a:hover {
+    background: none;
+    color: var(--accent-dark);
+  }
+}
+
+/* Base color for links; prevent focus/active/visited from changing it */
+.main-header .main-nav > ul > li > a,
+.main-header .main-nav .submenu li a { color: var(--text); }
+
+.main-header .main-nav > ul > li > a:visited,
+.main-header .main-nav > ul > li > a:active,
+.main-header .main-nav > ul > li > a:focus {
+  color: var(--text);
+  outline: none;
+}
+
+/* When a parent is open, keep its top-level link the normal color */
+.main-header .main-nav .has-submenu.open > a { color: var(--text); }
+
+/* Optional: remove iOS/Android tap highlight */
+.main-header .main-nav a { -webkit-tap-highlight-color: transparent; }
+
 
 /* Don’t clip the left chevron inside the drawer */
 .main-header .main-nav{ overflow:visible; }
