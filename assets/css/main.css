@@ -2586,7 +2586,7 @@ header .logo {
   margin-bottom: .5rem;
 }
 
-/* Row 1: keep share icon inline with the date/read-time block */
+/* Row 1: date/read-time + share icon just after it */
 .post-topmeta{
   display:flex;
   align-items:center;
@@ -2595,38 +2595,51 @@ header .logo {
   margin:.25rem 0 .5rem;
 }
 
-/* Only the share icon is visible by default; options are hidden */
+/* Share container (same row) */
 .post-topmeta .post-share-inline{
-  margin-left:.75rem;                 /* sits just to the right of read-time */
-  display:flex; align-items:center; position:relative;
-}
-.post-topmeta .post-share-inline > a:first-child { display:inline-flex; }
-.post-topmeta .post-share-inline > a.is-share-trigger{ display:inline-flex; }
-
-/* Inline tray (same row), appears on click */
-.post-topmeta .post-share-inline .share-tray{
-  display:flex; gap:.5rem; margin-left:.5rem;
-  opacity:0; transform:translateY(-4px); pointer-events:none;
-  max-width:0; overflow:hidden;
-  transition: opacity .18s ease, transform .18s ease, max-width .18s ease, margin .18s ease;
+  margin-left:.75rem;
+  display:flex;
+  align-items:center;
+  flex-wrap:nowrap;                 /* keep everything on one line */
+  position:relative;
 }
 
-/* Show the tray when the share area is hovered or focused */
-.post-topmeta .post-share-inline:hover .share-tray,
-.post-topmeta .post-share-inline:focus-within .share-tray{
+/* The share include sometimes inserts a <br> — hide it */
+.post-topmeta .post-share-inline > br{ display:none !important; }
+
+/* Default: show ONLY the first link (share icon) */
+.post-topmeta .post-share-inline > a{
+  display:inline-flex;
+  align-items:center;
+}
+.post-topmeta .post-share-inline > a:not(:first-child){
+  opacity:0;
+  width:0;
+  margin-left:0;
+  overflow:hidden;
+  pointer-events:none;
+  transform:translateY(-4px);
+  transition:
+    opacity .18s ease,
+    width .18s ease,
+    margin .18s ease,
+    transform .18s ease;
+}
+
+/* Hover or keyboard focus: reveal the rest IN LINE */
+.post-topmeta .post-share-inline:hover > a:not(:first-child),
+.post-topmeta .post-share-inline:focus-within > a:not(:first-child){
   opacity:1;
-  transform:translateY(0);
+  width:auto;
+  margin-left:.5rem;
+  overflow:visible;
   pointer-events:auto;
-  max-width:600px;   /* one horizontal line of icons */
+  transform:translateY(0);
 }
 
-.post-topmeta .post-share-inline .share-tray a{
-  display:inline-flex; align-items:center; font-size:1rem;
-  color:#51327f; text-decoration:none;
-}
-.post-topmeta .post-share-inline .share-tray a:hover{
-  color:var(--accent-dark, #3a1f6b);
-}
+/* Optional icon color hover */
+.post-topmeta .post-share-inline > a{ color:#51327f; text-decoration:none; }
+.post-topmeta .post-share-inline > a:hover{ color:var(--accent-dark, #3a1f6b); }
 
 /* Row 2: tags on their own line; label + bubbles start together */
 .post-tags-row{
