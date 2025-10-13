@@ -81,20 +81,29 @@ layout: default
       const cont = document.querySelector('.post-topmeta .post-share-inline');
       if (!cont) return;
     
-      // Find all share links the include rendered
-      const links = Array.from(cont.querySelectorAll('a'));
+      const links = Array.from(cont.querySelectorAll(':scope > a'));
       if (!links.length) return;
     
-      const trigger = links[0];          // your existing share icon
-      const rest = links.slice(1);
+      // Find the share icon link (fa-share, fa-share-alt, fa-share-from-square, etc.)
+      let trigger = links.find(a => {
+        const i = a.querySelector('i');
+        if (!i) return false;
+        return i.classList.contains('fa-share') ||
+               i.classList.contains('fa-share-alt') ||
+               i.classList.contains('fa-share-from-square') ||
+               i.classList.contains('fa-share-square');
+      }) || links[0]; // fallback if include uses a different icon
     
-      // Build tray with the remaining share links
+      trigger.classList.add('is-share-trigger');
+    
+      // Put the rest of the links into a tray
+      const rest = links.filter(a => a !== trigger);
       const tray = document.createElement('div');
       tray.className = 'share-tray';
       rest.forEach(a => tray.appendChild(a.cloneNode(true)));
       cont.appendChild(tray);
     
-      // Toggle tray on click
+      // Toggle tray on trigger click
       trigger.addEventListener('click', (e) => {
         e.preventDefault(); e.stopPropagation();
         cont.classList.toggle('open');
@@ -107,13 +116,15 @@ layout: default
         if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); trigger.click(); }
       });
     
-      // Close when clicking outside
+      // Close on outside click
       document.addEventListener('click', () => {
         cont.classList.remove('open');
         trigger.setAttribute('aria-expanded', 'false');
       });
     });
     </script>
+
+
 
   </article>
 
