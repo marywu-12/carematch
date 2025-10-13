@@ -42,7 +42,9 @@ layout: default
           <div class="post-tags-row">
             <ul class="post-tags-chips">
               {% for tag in page.tags %}
-                <li><a href="{{ relativebase }}tag.html#{{ tag | slugify }}">{{ tag }}</a></li>
+                <li>
+                  <a href="{{ relativebase }}tag.html?tag={{ tag | cgi_escape }}">{{ tag }}</a>
+                </li>
               {% endfor %}
             </ul>
           </div>
