@@ -31,29 +31,32 @@ layout: default
 
         <div class="header-page">
           <h1 class="page-title">{{ page.title }}</h1>
-
-          <!-- date / read-time + tags (chips) + share trigger (existing icon) -->
+        
+          <!-- Row 1: date/read-time  |  share icon (right) -->
           <div class="post-topmeta">
             {% include post_meta.html type="post-page-meta" %}
-
-            {% if page.tags %}
-              <span class="post-tags-label">Tags:</span>
-              <ul class="post-tags-chips">
-                {% for tag in page.tags %}
-                  <li><a href="{{ relativebase }}tags/#{{ tag | slugify }}">{{ tag }}</a></li>
-                {% endfor %}
-              </ul>
-            {% endif %}
-
             <div class="post-share-inline">
               {% include share-icons.html %}
             </div>
           </div>
-
+        
+          <!-- Row 2: tags (bubble chips) -->
+          {% if page.tags %}
+          <div class="post-tags-row">
+            <span class="post-tags-label">Tags:</span>
+            <ul class="post-tags-chips">
+              {% for tag in page.tags %}
+                <li><a href="{{ relativebase }}tags/#{{ tag | slugify }}">{{ tag }}</a></li>
+              {% endfor %}
+            </ul>
+          </div>
+          {% endif %}
+        
           {% if page.author %}
             <div class="post-author">By {{ page.author }}</div>
           {% endif %}
         </div>
+
 
         {%- comment -%} Left rail hidden on posts {%- endcomment -%}
         {%- comment -%} {% include sidebar.html context="post" class="side" id="sidebar" %} {%- endcomment -%}
@@ -77,39 +80,41 @@ layout: default
     document.addEventListener('DOMContentLoaded', () => {
       const cont = document.querySelector('.post-topmeta .post-share-inline');
       if (!cont) return;
-
-      const links = Array.from(cont.querySelectorAll(':scope > a'));
+    
+      // Find all share links the include rendered
+      const links = Array.from(cont.querySelectorAll('a'));
       if (!links.length) return;
-
-      // First existing icon is the trigger; others go into a tray
-      const trigger = links[0];
+    
+      const trigger = links[0];          // your existing share icon
       const rest = links.slice(1);
-
+    
+      // Build tray with the remaining share links
       const tray = document.createElement('div');
       tray.className = 'share-tray';
       rest.forEach(a => tray.appendChild(a.cloneNode(true)));
       cont.appendChild(tray);
-
-      // Toggle tray
+    
+      // Toggle tray on click
       trigger.addEventListener('click', (e) => {
         e.preventDefault(); e.stopPropagation();
         cont.classList.toggle('open');
         trigger.setAttribute('aria-expanded', cont.classList.contains('open'));
         trigger.setAttribute('role', 'button');
       });
-
-      // Keyboard
+    
+      // Keyboard support
       trigger.addEventListener('keydown', (e) => {
         if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); trigger.click(); }
       });
-
-      // Click outside to close
+    
+      // Close when clicking outside
       document.addEventListener('click', () => {
         cont.classList.remove('open');
         trigger.setAttribute('aria-expanded', 'false');
       });
     });
     </script>
+
   </article>
 
   {% include search.html %}
