@@ -94,6 +94,7 @@
     li.classList.toggle('open');
     link.setAttribute('role', 'button');
     link.setAttribute('aria-expanded', li.classList.contains('open'));
+    link.blur();
   }, true); //  <-- capture = true, runs before other handlers
 
   // Submenu items should navigate normally, but don't bubble upward
