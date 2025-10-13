@@ -44,7 +44,6 @@ layout: default
           <!-- Row 2: tags (bubble chips) -->
           {% if page.tags %}
           <div class="post-tags-row">
-            <span class="post-tags-label">Tags:</span>
             <ul class="post-tags-chips">
               {% for tag in page.tags %}
                 <li><a href="{{ relativebase }}tag.html#{{ tag | slugify }}">{{ tag }}</a></li>
