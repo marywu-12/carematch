@@ -2600,7 +2600,7 @@ header .logo {
   margin-left:.75rem;                 /* sits just to the right of read-time */
   display:flex; align-items:center; position:relative;
 }
-.post-topmeta .post-share-inline > a{ display:none; }
+.post-topmeta .post-share-inline > a:first-child { display:inline-flex; }
 .post-topmeta .post-share-inline > a.is-share-trigger{ display:inline-flex; }
 
 /* Inline tray (same row), appears on click */
@@ -2610,9 +2610,16 @@ header .logo {
   max-width:0; overflow:hidden;
   transition: opacity .18s ease, transform .18s ease, max-width .18s ease, margin .18s ease;
 }
-.post-topmeta .post-share-inline.open .share-tray{
-  opacity:1; transform:translateY(0); pointer-events:auto; max-width:600px;
+
+/* Show the tray when the share area is hovered or focused */
+.post-topmeta .post-share-inline:hover .share-tray,
+.post-topmeta .post-share-inline:focus-within .share-tray{
+  opacity:1;
+  transform:translateY(0);
+  pointer-events:auto;
+  max-width:600px;   /* one horizontal line of icons */
 }
+
 .post-topmeta .post-share-inline .share-tray a{
   display:inline-flex; align-items:center; font-size:1rem;
   color:#51327f; text-decoration:none;
