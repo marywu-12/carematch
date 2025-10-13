@@ -2,12 +2,21 @@
 layout: post
 read_time: true
 show_date: true
-title:  What is Alzheimer's?
-date:   2025-08-09
+title:  Signs of Burnout 
+date:   2025-10-12
 description: 
-img: posts/homepage/alzheimers.jpg
-tags: []
-author: 
+img: posts/homepage/burnout.jpg
+tags: [Mental Health, Caregiver Wellness, Peer Support, Self-Care for Caregivers. Work–Life Balance]
+author: Vasiliki Glekas, B.S, MPH.
 pin_on_home: true
 featured_order: 2
 ---
+
+The National Alliance on Mental Illness has reported in their 2025 Workplace Mental Health Poll that [1 in 5 people](https://www.nami.org/support-education/publications-reports/survey-reports/the-2025-nami-workplace-mental-health-poll/) across the nation are actively looking for a new job, and this is because of stress and burnout resulting from their occupation. When looking at caregivers specifically, studies have shown that over 60% experience symptoms of burnout such as feeling drained or depleted, overwhelmed, or detachment. 
+
+Each person’s experience with burnout differs with regards to triggers as well as symptoms. However, there have been [several common triggers](https://my.clevelandclinic.org/health/diseases/9225-caregiver-burnout) found amongst caregivers specifically. First, is the feeling of role confusion, where an individual feels confusion or shock stepping into the caregiver role for their loved one. Another factor is the lack of control, which can lead to frustration of helplessness among caregivers now needing to effectively plan, manage and organize their loved one’s care. There is also the feeling of too much responsibility, where caregivers feel that they are juggling too many obligations at once, and a feeling of isolation or the caregiver unintentionally assigning the responsibilities of being a caregiver to themselves alone.
+
+We at CareMatch work to relieve the mental health strain that a majority of caregivers are unfortunately experiencing. Through connecting caregivers with licensed healthcare providers, CareMatch gives caregivers a community that they can rely on. 
+
+![Burnout.](./assets/img/posts/20251012/post2-burnout.png)
+<small>Source: [Healthline](https://www.healthline.com/health/tips-for-identifying-and-preventing-burnout)</small>
