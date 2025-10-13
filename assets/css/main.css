@@ -2579,32 +2579,33 @@ header .logo {
 
 /* ===== Post header tweaks ===== */
 
-/* Title size (unchanged from your latest) */
+/* Title size */
 .page .page-title {
-  font-size: clamp(1.9rem, 4.6vw, 2.9rem);
+  font-size: clamp(1.6rem, 4.6vw, 2.9rem);
   line-height: 1.15;
   margin-bottom: .5rem;
 }
 
-/* Row 1: date/read-time + share icon (right) */
+/* Row 1: date/read-time + share icon right after it */
+.post-topmeta{
+  display:flex; align-items:center; gap:.5rem 1rem; flex-wrap:wrap;
+  margin:.25rem 0 .5rem;
+}
 .post-topmeta .post-share-inline{
-  margin-left:.75rem;                  /* was auto (which pushed it right) */
-  position:relative;
-  display:flex;
-  align-items:center;
+  margin-left:.75rem;                 /* sits right of the read-time */
+  position:relative; display:flex; align-items:center;
 }
 
-/* Hide all share links by default… */
+/* Show only the real share icon inline; hide the rest */
 .post-topmeta .post-share-inline > a{ display:none; }
-/* …JS will add .is-share-trigger to the real share icon */
 .post-topmeta .post-share-inline > a.is-share-trigger{ display:inline-flex; }
 
-/* Tray under the icon (fade/slide) */
+/* Tray: horizontal row, appears on click under the icon */
 .post-topmeta .post-share-inline .share-tray{
   position:absolute; top:calc(100% + 8px); left:0;
-  display:flex; gap:.4rem;
+  display:flex; flex-wrap:nowrap; gap:.5rem;   /* HORIZONTAL line */
   background:#fff; border:1px solid #eee; border-radius:.5rem;
-  padding:.4rem .5rem; box-shadow:0 6px 18px rgba(0,0,0,.08);
+  padding:.45rem .55rem; box-shadow:0 6px 18px rgba(0,0,0,.08);
   opacity:0; transform:translateY(-4px); pointer-events:none;
   transition:opacity .18s ease, transform .18s ease; z-index:5;
 }
@@ -2622,28 +2623,23 @@ header .logo {
 
 /* Row 2: tags on their own line */
 .post-tags-row{
-  display:flex; align-items:center; gap:.5rem .75rem;
-  flex-wrap:wrap; margin:0 0 1rem;
+  display:flex; align-items:center; gap:.5rem .75rem; flex-wrap:wrap;
+  margin:0 0 1rem;
 }
 .post-tags-label{ font-size:.82rem; color:#666; flex:0 0 auto; }
 
-/* Bubble chips */
 .post-tags-chips{
-  flex:1 1 auto;
-  list-style:none; display:flex; flex-wrap:wrap;
+  flex:1 1 auto; list-style:none; display:flex; flex-wrap:wrap;
   gap:.4rem .6rem; margin:0; padding:0;
 }
 .post-tags-chips li a{
   display:inline-block; padding:.18rem .5rem;
   border:1px solid #e6def4; border-radius:999px;
-  font-size:.78rem; text-decoration:none;
-  color:#51327f; background:transparent;
+  font-size:.78rem; text-decoration:none; color:#51327f; background:transparent;
   transition:background-color .15s ease, border-color .15s ease, color .15s ease;
 }
 .post-tags-chips li a:hover{
-  background:#f2ecff;                 /* fill on hover */
-  border-color:#d8c9f5;
-  color:var(--accent-dark, #3a1f6b);
+  background:#f2ecff; border-color:#d8c9f5; color:var(--accent-dark, #3a1f6b);
 }
 
 /* Author line */
