@@ -3,7 +3,7 @@ layout: post
 read_time: true
 show_date: true
 title:  "The Language of Care: Why Culturally Responsive Care Builds Trust"
-date:   2025-11-15
+date:   2025-11-05
 description: 
 img: posts/homepage/responsive.jpg
 tags: [Cultural Competence, Health Equity, Culturally Responsive Care, Language Access]
