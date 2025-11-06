@@ -2,7 +2,7 @@
 layout: post
 read_time: true
 show_date: true
-title:  The Language of Care: Why Culturally Responsive Care Builds Trust 
+title:  "The Language of Care: Why Culturally Responsive Care Builds Trust"
 date:   2025-11-15
 description: 
 img: posts/homepage/responsive.jpg
