@@ -8,7 +8,7 @@ description:
 img: posts/homepage/caregiving.png
 tags: [Caregiver Wellness, Mental Health, Self-Care for Caregivers, Work–Life Balance, Social Connection]
 author: Cindy Lu, B.S., MPH.
-pin_on_home: true
+pin_on_home: false
 featured_order: 1
 mathjax: yes
 ---
