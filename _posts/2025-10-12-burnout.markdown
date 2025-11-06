@@ -8,7 +8,7 @@ description:
 img: posts/homepage/burnout.jpg
 tags: [Mental Health, Caregiver Wellness, Peer Support, Self-Care for Caregivers, Work–Life Balance]
 author: Vasiliki Glekas, B.S., MPH.
-pin_on_home: true
+pin_on_home: false
 featured_order: 2
 ---
 
